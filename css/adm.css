@@ -1,0 +1,29 @@
+section{
+    width: 1024px;
+    margin: 0 auto;
+}
+table{
+    border-collapse: collapse;
+    border: rgb(127, 173, 253) solid 1px;
+   margin-top: 15px;
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+tr,td{
+    height: 45px;
+    text-align: center;
+     font-size: large;
+    
+}
+tr:nth-child(2n+2){
+    background-color: rgba(183, 183, 250, 0.578);
+}
+tr:first-child{
+    color: white;
+    background-color: rgb(47, 87, 147);
+}
+td:first-child{
+    font-weight: bold;
+   
+}

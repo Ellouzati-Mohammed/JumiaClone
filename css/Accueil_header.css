@@ -1,0 +1,211 @@
+.header .section{
+    width: 1170px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 16.5px;
+    padding-top: 16.5px;
+    
+}
+.col2{ 
+    display: flex;
+    align-items: center;
+    padding-right: 53px;
+
+}
+
+.find input[type="search"]{
+    height: 40px;
+    width: 28.4pc;
+    border: 1px solid rgb(138, 138, 138);
+    border-radius: 4px;
+    padding-left: 41px;
+    font-size: 16px;
+}
+.find input[type="submit"]{
+    height: 40px;
+    width: 7.3pc;
+    margin-left: 8px;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,.2);
+    background-color: #f68b1e;
+    border: 0;
+    border-radius: 4px;
+    font-weight: 500;
+    font-family: Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
+.col3{
+   
+    display: flex;
+    flex-direction: row;
+    font-weight: 500;
+    font-family: Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;
+    position: relative;
+    bottom: 3px;
+    margin-top: 0;
+}
+.recherch{
+    padding: 0 15px;
+}
+.find img{
+    position: relative; 
+    left: 30px;
+}
+.find{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.img-rech{
+    display: flex;
+}
+.col3 div{
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    padding-right: 15px;
+}
+.col3 a{
+   text-decoration: none;
+   color: rgb(47, 47, 47);
+}
+
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul li{
+    display: inline-block;
+    position: relative;
+}
+ul li ul.drop li{
+    display: block;
+}
+
+ul li a{
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    
+}
+ul li ul.drop{
+    width: 130%;
+    position: absolute;
+    z-index: 999;
+    display: none;
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,.2);
+}
+
+ul li:hover ul.drop{
+    display: inline-block;
+}
+
+li .con:hover{
+    color: #f68b1e;
+}
+ 
+.cona .gig{
+    background-color: #f68b1e;
+}
+
+.cona input:hover,.find input[type="submit"]:hover{
+background-color: #dd7c1a;
+
+}
+
+
+ 
+.cona2 .gig{
+    background-color: #ffffff;
+}
+
+.cona2 input:hover{
+background-color: #ffdbb4;
+
+}
+
+/*a.gig{
+  /*margin-left: 17px;
+  margin-right: 14px;
+  color: white;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,.2);
+  background-color: #f68b1e;
+  border: 0;
+  border-radius: 4px;
+  font-weight: 500;
+  font-family: Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  height: 25px;
+  width: 90%;
+  margin-top: 18px;
+  padding-top: 8px;
+  padding-bottom: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-bottom: 20px;
+  
+  
+}*/
+.nulm .drop .gig:hover{
+    background-color: #dd7c1a;
+    
+ }
+.nulm .drop li:nth-child(n+2):hover{
+   background-color: #f1f1f2;
+   
+}
+.not_nulm .drop li:not(:last-child):hover{
+    background-color: #f1f1f2;
+    
+ }
+.drop li a{
+    font-weight: 400;
+ }
+ .drop li a:hover{
+    font-weight: 500;
+ }
+
+
+
+li ul{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+.nulm .drop li:first-child {
+    
+    border-bottom: 2px solid #f1f1f2;
+}
+.not_nulm .drop li:last-child {
+    
+    border-top: 2px solid #f1f1f2;
+}
+/*panier*/
+#article_pan:not(:first-of-type) {
+    border-top: 1px solid #d5d5d5;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

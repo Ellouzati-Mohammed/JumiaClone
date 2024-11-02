@@ -1,0 +1,99 @@
+*{
+    box-sizing: border-box;
+    
+}
+body{
+    margin: 0;
+}
+.jm{
+  display: flex;
+  flex-direction: column;
+  
+}
+.banner,.header{
+    width: 100%;
+    padding: 0 auto;
+}
+
+.row1{
+    height: 57px;
+    display: flex;
+    justify-content: center;
+}
+
+.vb{
+    background-color: #f1f1f2;
+    height: 31px; 
+}
+#s2{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 1170px;
+    margin: 0 auto;
+}
+.vb a{
+    text-decoration: none;
+    font-family:system-ui;
+    font-size: 14px;
+    font-weight: 200;
+}
+.col_start a{
+ color: #f68b1e;
+ font-family:system-ui;
+ font-size: 12px;
+ font-weight: 500;
+}
+
+.col_start{
+   position: relative;
+   top: 2px;
+}
+
+.col_start span{
+    margin-left: 5px;
+}
+.col_start img{
+  position: relative;
+  top: 2px;
+}
+.col_center{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+/*.col_center{
+    margin-left: 34.69%;
+    margin-right: 32.6%;
+
+}*/
+.col_end img{
+   border-radius: 10px;
+}
+.col_center .food{
+    margin-left: 14px;
+    position: relative;
+    top:5px;
+}
+.col_center .jum{
+    position: relative;
+    top:1px;
+}
+.col_end{
+    position: relative;
+    top: 2px;
+    display: flex;
+}
+.col_end img,.col_end span,.col_end a{
+    margin-right: 4px;
+}
+.col_end img{
+    position: relative;
+    top: 2px;
+}
+
+.langue span{
+    color: black;
+}
+

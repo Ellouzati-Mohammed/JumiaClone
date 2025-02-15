@@ -124,20 +124,20 @@
   </head>
 
 <body>
-    <?php
-    require_once 'db/db.php';
-    if ( 
-      !isset($_POST['num_email']) || 
-      empty($_POST['num_email']) ||  
-      strpos($_POST['num_email'], '@gmail.com') === false || 
-      !isset($_POST['password']) || 
-      empty($_POST['password']) || 
-      strlen(trim($_POST['password'])) < 8
-    ) {
-        header('Location: connexion.php');
-        exit(); 
-    }
-    ?>
+        <?php
+        require_once 'db/db.php';
+        if ( 
+        !isset($_POST['num_email']) || 
+        empty($_POST['num_email']) ||  
+        strpos($_POST['num_email'], '@gmail.com') === false || 
+        !isset($_POST['password']) || 
+        empty($_POST['password']) || 
+        strlen(trim($_POST['password'])) < 8
+        ) {
+            header('Location: connexion.php');
+            exit(); 
+        }
+        ?>
 
     <div class="container" id="container">
         <div class="spacer" id="spacer"></div>

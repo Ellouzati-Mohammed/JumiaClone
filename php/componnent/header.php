@@ -12,11 +12,11 @@
                            </div>
                            <?php 
                                  if(isset($_POST['decon'])){
-                                       unset($_SESSION['client']['id_client']);
+                                       unset($_SESSION['user']['user_id']);
                                        header('Location: Accueil.php'); 
                                        exit;
                                     }
-                                    if(isset($_SESSION['client']['id_client'])){
+                                    if(isset($_SESSION['user']['user_id'])){
                                        echo"
                                        <input type=\"search\" name=\"Recherch\" placeholder=\"Cherchez un produit, une marque ou une catégorie\" style=\"outline: 0; width: 23.65pc;\">
                                        ";
@@ -31,10 +31,10 @@
                      <div class="col3" style="width:100%; display: flex; justify-content: center;" >
                            <div class="Connecter" style="padding-left:2px; position:relative;">
                                  <?php 
-                                    if(isset($_SESSION['client']['id_client'])){
+                                    if(isset($_SESSION['user']['user_id'])){
                                     echo"<form method=\"post\" action=\"Accueil.php\">
                                     <ul class=\"not_nulm\" style=\"\">
-                                       <li  style=\"\"><a href=\"\" class=\"con\" style=\"\"><img src=\"../images/compt_valid.png\" width=\"27px\" height=\"21.5px\" style=\"position: relative; top: 3px; padding-right: 5px;\">Bonjour, ".$_SESSION['client']['prenom_client']."<img src=\"../images/fchdown.png\" width=\"11\" height=\"9\" style=\"margin-left:13px; position: relative; bottom:1.5px;\"></a>
+                                       <li  style=\"\"><a href=\"\" class=\"con\" style=\"\"><img src=\"../images/compt_valid.png\" width=\"27px\" height=\"21.5px\" style=\"position: relative; top: 3px; padding-right: 5px;\">Bonjour, ".$_SESSION['user']['first_name']."<img src=\"../images/fchdown.png\" width=\"11\" height=\"9\" style=\"margin-left:13px; position: relative; bottom:1.5px;\"></a>
                                        <ul class=\"drop\" style=\"position:absolute; width: 206px; right: 180px; transform: translateX(100%);\">
                                        <form method=\"post\" action=\"Accueil.php\"> 
                                        <li style=\"\"><a href=\"votre_compt.php?r=1\" style=\"padding:8px;padding-bottom: 13px;padding-top: 10px;width:100%;text-align: left;display: flex;  align-items: center; font-size: .875rem;\"><img src=\"../images/votre_compt\" width=\"22\" height=\"22\" style=\"margin-right:14px;\">Votre compte</a></li>
@@ -83,7 +83,7 @@
                            <div class="Panier" style="padding-right:0; margin-left:13px;">
                               <a href="panier.php" style="position:relative;"><span><img src="../images/pan.png" width="30" height="22.5" style="position: relative; top: 5px; padding-right: 5px;"></span>
                                        <?php 
-                                       $idclt = isset($_SESSION['client']['id_client']) ? $_SESSION['client']['id_client'] : null; 
+                                       $idclt = isset($_SESSION['user']['user_id']) ? $_SESSION['user']['user_id'] : null; 
                                        $cmt=0;
                                        $somquat=0;
                                        if(isset($_SESSION['panier'] [$idclt] )){

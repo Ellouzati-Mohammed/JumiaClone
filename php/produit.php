@@ -17,168 +17,50 @@ require_once 'db/db.php';
 <body>
   
   <div class="jm">
-    <div class="banner"> 
-            <div class="row1">
-                  <img class="img1" src="https://ma.jumia.is/cms/000_2023/000005_Mai/Camps/BeautyWeek/MA_W17_Beauty_TopBanner.png" alt="publicité"  style="box-sizing: border-box;" width="1170px">             
-           </div>
-            <div class="vb">
-               <div id="s2" style=" box-sizing: border-box;max-width:1184px; width:100%;">
-                   <div class="col_start" style="padding-left:13.2px;;"><a href=""><img src="https://www.jumia.ma/assets_he/favicon.87f00114.ico" alt="jumia" width="13.5px" height="13px"><span>Vendez sur Jumia</span></a></div>
-                   <div class="col_center" style="padding-left:19.5px;"><a href="" class="jum"><img src="../images/jum.png" width="52" height="8.4"></a> <a href="" class="food"><img src="../images/food-logo.png" width="52" height="22"></a></div>
-                   <div class="col_end"><a href=""><span><img src="../images/francais.png" width="13" height="13"></span> Francais</span> </a><span> | </span><a href=""><span> <img src="../images/maroc.png" width="13" height="13"> العربية</span> </a></div>
-            </div>
-            </div>
-    </div>
-
-    <header class="header" style="position: sticky; top: 0; background-color: white; z-index: 9999;">
-            <section class="section" style="flex-wrap: nowrap; width:1184px;">
-                    <div class="col2"><a href="Accueil.php" class="df"style="padding-left:10px;"><img src="../images/jum.png" width="135" height="23"></a></div>
-                    <form  class="recherch" method="get" action="recherch.php">
-                    <div class="find">
-
-                    <div class="img-rech" style="z-index:444;"><img src="../images/search.png" width="18" height="18" ></div>
-                    <?php 
-                 if(isset($_POST['decon'])){
-                  unset($_SESSION['client']['id_client']);
-                  header('Location: Accueil.php'); 
-                 exit;
-              }
-                    if(isset($_SESSION['client']['id_client'])){
-                      echo"
-                      <input type=\"search\" name=\"Recherch\" placeholder=\"Cherchez un produit, une marque ou une catégorie\" style=\"outline: 0; width: 23.65pc;\">
-                     ";
-                    }else{
-                      echo" <input type=\"search\" name=\"Recherch\" placeholder=\"Cherchez un produit, une marque ou une catégorie\" style=\"outline: 0; width: 28.4pc;\"> ";
-                    }
-                    ?>
-                        
-                            <input class="sub_cher" type="submit" value="RECHERCHER">
-                        </div>
-                   </form> 
-                    <div class="col3" style="width:100%; display: flex; justify-content: center;" >
-                          <div class="Connecter" style="padding-left:2px; position:relative;">
-                          <?php 
-                            if(isset($_SESSION['client']['id_client'])){
-                              echo"<form method=\"post\" action=\"Accueil.php\">
-                              <ul class=\"not_nulm\" style=\"\">
-                               <li  style=\"\"><a href=\"\" class=\"con\" style=\"\"><img src=\"../images/compt_valid.png\" width=\"27px\" height=\"21.5px\" style=\"position: relative; top: 3px; padding-right: 5px;\">Bonjour, ".$_SESSION['client']['prenom_client']."<img src=\"../images/fchdown.png\" width=\"11\" height=\"9\" style=\"margin-left:13px; position: relative; bottom:1.5px;\"></a>
-                               <ul class=\"drop\" style=\"position:absolute; width: 206px; right: 180px; transform: translateX(100%);\">
-                                <form method=\"post\" action=\"Accueil.php\"> 
-                                 <li style=\"\"><a href=\"votre_compt.php?r=1\" style=\"padding:8px;padding-bottom: 13px;padding-top: 10px;width:100%;text-align: left;display: flex;  align-items: center; font-size: .875rem;\"><img src=\"../images/votre_compt\" width=\"22\" height=\"22\" style=\"margin-right:14px;\">Votre compte</a></li>
-                                 <li style=\"\"><a href=\"votre_compt.php?r=2\" style=\"padding: 10px;padding-bottom: 13px;padding-top: 10px;width:100%;text-align: left;display: flex;  align-items: center; font-size: .875rem;\"><img src=\"../images/vos_cmd\" width=\"20\" height=\"20\" style=\"margin-right:15px;\">Vos commandes</a></li>
-                                 <li style=\"\"><a href=\"votre_compt.php?r=3\" style=\"padding: 10px;padding-bottom: 13px;padding-top: 10px;width:100%;text-align: left;display: flex;  align-items: center; font-size: .875rem;\"><img src=\"../images/boit\" width=\"20\" height=\"16\" style=\"margin-right:15px;\">Boite de réception</a></li>                               
-                                 <li style=\"\"><a href=\"votre_compt.php?r=4\" style=\"padding: 10px;padding-bottom: 13px;padding-top: 10px;width:100%;text-align: left;display: flex; align-items: center; font-size: .875rem;\"><img src=\"../images/vos_pref\" width=\"20\" height=\"20\" style=\"margin-right:15px; margin-left:0px;\">Votre liste d'envies</a></li>
-                                 <li style=\"\"><a href=\"votre_compt.php?r=5\" style=\"padding: 10px;padding-bottom: 13px;padding-top: 10px;width:100%;text-align: left;display: flex; align-items: center; font-size: .875rem;\"><img src=\"../images/ach\" width=\"20\" height=\"20\" style=\"margin-right:15px; margin-left:0px;\">Bons d'achat</a></li>
-                                 <li style=\"display:flex;justify-content: center;\"><div class=\"cona2\" style=\" width:70%; display:flex;justify-content: center;\"><input type=\"submit\" name=\"decon\" class=\"gig\" style=\" color: white;border: 0;border-radius: 4px;font-weight: 500;font-family: Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;font-size: 14px;cursor: pointer; padding:5px 0px;width:94%;margin-left:9px;margin-top:4px; margin-bottom:4px; color:#f68b1e;\" value=\"DECONNEXTION\"></div></li>
-                               </ul>
-                               </li>
-   
-                             </ul></form>";
-                               
-                                 
- 
-                              }else{
-                           
-
-                              echo"<ul class=\"nulm\" style=\"\">
-                              <li style=\"\"><a href=\"\" class=\"con\" style=\"\"><img src=\"../images/cone.png\" width=\"25px\" height=\"21.5px\" style=\"position: relative; top: 3px; padding-right: 5px;\"> Se connecter<img src=\"../images/fchdown.png\" width=\"11\" height=\"9\" style=\"margin-left:13px; position: relative; bottom:1.5px;\"></a>
-                              <ul class=\"drop\" style=\"position:absolute; min-width: 206px; right: 170px; transform: translateX(100%);\">
-                                <li style=\"display:flex;justify-content: center;\"><div class=\"cona\" style=\" width:100%; display:flex;justify-content: center;\"><a class=\"gig\" href=\"connexion.php\" style=\" color: white;box-shadow: 0 4px 8px 0 rgba(0,0,0,.2);border: 0;border-radius: 4px;font-weight: 500;font-family: Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;font-size: 14px;cursor: pointer; padding:11px 14px;width:94%;margin-left:9px;margin-top:15px; margin-bottom:15px;\">SE CONNECTER</a></div></li>
-                                <li style=\"\"><a href=\"\" style=\"padding: 8px;padding-bottom: 13px;padding-top: 10px;width:100%;text-align: left;display: flex;  align-items: center; font-size: .875rem;\"><img src=\"../images/votre_compt\" width=\"22\" height=\"22\" style=\"margin-right:14px;\">Votre compte</a></li>
-                                <li style=\"\"><a href=\"\" style=\"padding: 10px;padding-bottom: 13px;padding-top: 10px;width:100%;text-align: left;display: flex; align-items: center; font-size: .875rem;\"><img src=\"../images/vos_cmd\" width=\"20\" height=\"20\" style=\"margin-right:15px;\">Vos commandes</a></li>
-                                <li style=\"\"><a href=\"\" style=\"padding: 10px;padding-bottom: 13px;padding-top: 10px;width:100%;text-align: left;display: flex;  align-items: center; font-size: .875rem;\"><img src=\"../images/vos_pref\" width=\"20\" height=\"20\" style=\"margin-right:15px; margin-left:0px;\">Votre liste d'envies</a></li>
-                                
-                              </ul>
-                              
-                              </li>
-  
-                            </ul>";
-                            
-                            }
-                         ?>
-                           
-                            </div>
-                          <div class="Aide" style="padding:0; padding-left:2px; display:flex; align-items: center; ">
-                            <a href="" ><img src="../images/ai.png" width="24" height="21.5" style="margin-right:2px; position: relative; top:2.5px;"><span style="padding-left:6.5px;">Aide</span><span style=""><img src="../images/fchdown.png" width="11" height="9" style=" margin-left: 11px; position: relative; bottom:1.5px;"></span></a>
-                          </div>
-                          <!--le panier-->
-                          <div class="Panier" style="padding-right:0; margin-left:13px;">
-                          <a href="panier.php" style="position:relative;"><span><img src="../images/pan.png" width="30" height="22.5" style="position: relative; top: 5px; padding-right: 5px;"></span>
-                                     <?php 
-                                     $idclt = isset($_SESSION['client']['id_client']) ? $_SESSION['client']['id_client'] : null; 
-                                     $cmt=0;
-                                     $somquat=0;
-                                     if(isset($_SESSION['panier'] [$idclt] )){
-                 
-                                      
-                                     
-                                     foreach ($_SESSION['panier'][$idclt] as $idProduit => $quantite) {
-                                       $cmt++;
-                                       $somquat=$somquat+$quantite;
-                                     }
-                                     if($cmt!=0){
-                                      echo "<span style=\"background-color:white; padding:1.4px; position: absolute; border-radius: 50px; left:9px; bottom:10px;\"><span style=\";color: #fff; font-size: .625rem; font-weight: 700; background-color: #f68b1e;border-radius: 50px; padding-left: 4px; padding-bottom: 1px; padding-right: 4px; padding-top: 0px;min-height: 12px; min-width: 12px; max-height: 18px;\">".$somquat."</span></span>";
-                                     }} 
-                                     
-                                     ?>
-                                     Panier</a>
-                          </div>
-                    </div>    
-            </section>
-
-     </header>
+    
+     <?php include 'componnent/banner.html'; ?> <!--le baner-->
+     <?php include 'componnent/header.php'; ?> <!--le header-->
      <?php
-                            
-                            
-                            
-                            $valeur=$_GET['id_produit'];
-                                $requet= $bd->prepare('SELECT * FROM produit,imag,type,liste,catégorie where liste.id_catégorie=catégorie.id_catégorie and type.id_liste=liste.id_liste and type.id_type=produit.id_type and imag.id_produit=produit.id_produit and produit.id_produit = :valeur'); 
-                                $requet->bindParam(':valeur', $valeur);
-                                $requet->execute();
+                                $valeur=$_GET['id_produit'];
+                                try {
+                                  $requet= $bd->prepare('SELECT * FROM product,category,sub_category,sub_category_title where category.category_id=sub_category.category_id and sub_category.sub_category_id=sub_category_title.sub_category_id and sub_category_title.sub_category_title_id=product.sub_category_title_id and product.product_id = :valeur'); 
+
+                                  $requet->bindParam(':valeur', $valeur);
+                                  $requet->execute();
+                                } catch (\Throwable $th) {
+                                  die();
+                                }
+                                
                                 $prod=$requet->fetchALL(PDO::FETCH_ASSOC);
+                                if (empty($prod)) {
+                                  echo '<script>window.location.href = "accueil.php";</script>';
+                                  exit();
+                                }
                                 foreach($prod as $ligne){
-                                  $categ=$ligne['nom_catégorie'];
-                                  $liste=$ligne['nom_liste'];
-                                  $type=$ligne['nom_type'];
-                                  $image=$ligne['source'];
-                                  $nom=$ligne['nom_produit'];
-                                  $prix=$ligne['prix_produit'];
-                                  $disc=$ligne['disc'];
-                                  $mark=$ligne['mark'];
+                                  $quantité_produit_restant=$ligne['remaining_product_quantity'];
+                                  if (!isset( $quantité_produit_restant) ||  $quantité_produit_restant <= 0 ||empty($quantité_produit_restant)) {
+                                    echo '<script>window.location.href = "accueil.php";</script>';
+                                   exit();
+                                  }
+                                  $categ=$ligne['category_name'];
+                                  $liste=$ligne['sub_category_name'];
+                                  $type=$ligne['Sub_Category_Title_name'];
+                                  $image=$ligne['product_image'];
+                                  $nom=$ligne['Product_name'];
+                                  $prix=$ligne['product_price'];
+                                  $disc=$ligne['discount'];
+                                  $mark=$ligne['brand'];
                                   $new_prix=$prix-($prix*$disc/100);
                                   if($disc==0){
-                                  $new_prix=$prix;
+                                    $new_prix=$prix;
                                   }
                                 }
-                    ?>
+      ?>
     <main style=" background-color: #f1f1f2; padding-bottom: 8px; padding-top: 8px">
       <div class="row_row" style="width: 1184px; margin: 0 auto; display: flex; flex-direction: row; flex-wrap: wrap;  font-size: .875rem; font-family: Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;">
              <div style="flex: 100%;  padding-bottom: 16px; padding-top: 8px; width: 100%; font-size: .75rem; padding-left: 8px;  padding-right: 8px;  font-family: Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;"><?php echo"Accueil > $categ > $liste > $type > $nom"; ?></div>
             <section style=" width: 75%;   padding-right: 8px; padding-left: 8px; border-radius: 5px;height: 100%;">
                             <div style="height: 655px;border-radius: 4px; background-color: white; display: flex; flex-direction: row; flex-wrap: wrap; padding: 8px; padding-right: 0; ">
-                            
-                            <?php
-                            
-                            
-                                   
-                                    $valeur=$_GET['id_produit'];
-                                        $requet= $bd->prepare('SELECT * FROM produit,imag where imag.id_produit=produit.id_produit and produit.id_produit = :valeur'); 
-                                        $requet->bindParam(':valeur', $valeur);
-                                        $requet->execute();
-                                        $prod=$requet->fetchALL(PDO::FETCH_ASSOC);
-                                        foreach($prod as $ligne){
-                                          $image=$ligne['source'];
-                                          $nom=$ligne['nom_produit'];
-                                          $prix=$ligne['prix_produit'];
-                                          $disc=$ligne['disc'];
-                                          $mark=$ligne['mark'];
-                                          $new_prix=$prix-($prix*$disc/100);
-                                          if($disc==0){
-                                          $new_prix=$prix;
-                                          }
-                                        }
-                            ?>
-
                                     <div class="image_prd_info" style="padding-left: 8px; display: flex; flex-direction: column;  width: 37.5%; padding-top: 8px;">
                                           <div style=" width: 94%; height: 315px; display: flex; justify-content: center;  box-shadow: 0 1.5px 1px 0 rgba(0, 0, 0, .04);"><img width="97%" src="<?php echo $image; ?>"> </div>
                                           <section class="partag" style="padding-bottom: 8px; display: block;">
@@ -186,7 +68,6 @@ require_once 'db/db.php';
                                             <div><img src="../images/facebook.png" width="30px" height="28px"><img src="../images/twitr.png" width="28px" height="28px" style="margin-left: 5px;"></div>
                                           </section>
                                     </div>
-
                                     <div class="info_prod_achat" style="width: 62.5%; ">
                                           <div class="nom_prefer" style="margin-left: 2px; padding-left: 3px; padding-top: 6px; display: flex; flex-direction: row; justify-content: space-between;">
                                             <div>
@@ -195,7 +76,6 @@ require_once 'db/db.php';
                                             </div>
                                             <a href=" " style=" margin-right:16.5px; margin-top:2px;"><img src="../images/prefer.png" width="23.5px" height="21px"></a>
                                           </div>
-
                                           <div class="mark_rate_prix" style=" margin-left: 5px;">
                                               <div class="mark" style="color: #313133;; margin-top: 4.5px;">Marque: <a href="" style="text-decoration: none; color: #264996;"><?php echo $mark; ?></a> </div>
                                               <div class="rate" style="margin-top: 8px; display: flex; flex-direction: row;"><div style="display: flex; align-items: center;"><img src="../images/rating.png" width="77px" height="14px"></div><a href="" style="text-decoration: none; color: #264996; margin-left: 7px;">(5 avis vérifies)</a></div>
@@ -204,7 +84,7 @@ require_once 'db/db.php';
                                                      <div class="prix_dismount" style="margin-top: 14px;">
                                                            <div style="font-size: 1.5rem; font-weight: 700;"><?php echo $new_prix;?> Dhs</div>
                                                            <?php
-                                                           if($ligne['disc']!=0){
+                                                           if($ligne['discount']!=0){
                                                             echo"<div style=\"display: flex; flex-direction: row;\">
                                                             <div style=\"text-decoration: line-through; color: #75757a; font-size: 1rem;\">".$prix." Dhs</div>
                                                             <div style=\"margin-left: 7px; color: #f68b1e; background-color: #fef3e9; font-size: .875rem;font-weight: 500; padding-left: 4px; padding-right: 4px; border-radius: 2px; font-family: Roboto,Arial,Helvetica,sans-serif;display: flex; align-items: center; padding-top: 4px; padding-bottom: 4px;\"><span>-".$disc."%</span></div>
@@ -216,7 +96,6 @@ require_once 'db/db.php';
                                                      <p style="margin: 0; font-size: .75rem; color: #75757a; margin-top: 7px;">Disponible</p>
                                                      <div style="font-size: .75rem; color: #313133; margin-top: 8px;">+ livraison à partir de<span style="font-weight: 500;"> 12.00 Dhs </span>(livraison gratuite si supérieur à 150.00 Dhs) vers CASABLANCA - Anfa</div>
                                               </div>
-                                              
                                           </div>
                                           <div class="j'achéte" style="margin-left: 4px; margin-top: 8px; font-size: .875rem; font-weight: 500; ">
                                               <div style="padding-bottom: 8px; margin-left: 1px;"><span>OPTIONS DISPONIBLES</span></div>
@@ -225,35 +104,30 @@ require_once 'db/db.php';
                                              <?php
                                                   
                                                  $existsInCart = false;
-                                                  
-                                                  $idclt = isset($_SESSION['client']['id_client']) ? $_SESSION['client']['id_client'] : null;
-
+                                                 $idclt = isset($_SESSION['user']['user_id']) ? $_SESSION['user']['user_id'] : null;
                                                   if(!isset($_SESSION['panier'] [$idclt] )){
-         
                                                     $_SESSION['panier'] [$idclt]= [];
-                                               }  
-
-                                                
+                                                  }  
                                                   foreach ($_SESSION['panier'][$idclt] as $idProduit => $quantite){
                                                     $idProduit = trim($idProduit); 
                                                     if ($idProduit == $_GET['id_produit']) {
                                                         // Le produit est présent dans le panier
                                                         $existsInCart = true;
-                                                        break;}}
-                                                        
-                                                        
-                                                  
+                                                        break;
+                                                      }
+                                                    }
+
                                                   if ($existsInCart) {
                                                     $valeur=$_GET['id_produit'];
-                                                    $requet= $bd->prepare('SELECT * FROM produit,imag where imag.id_produit=produit.id_produit and produit.id_produit = :valeur'); 
+                                                    $requet= $bd->prepare('SELECT * FROM product where  product.id_product = :valeur'); 
                                                     $requet->bindParam(':valeur', $valeur);
                                                     $requet->execute();
                                                     $prod=$requet->fetchALL(PDO::FETCH_ASSOC);
                                                     foreach($prod as $ligne){
                                                       
-                                                     if($idProduit==$ligne['id_produit']){
-                                                       if($_SESSION['panier'][$idclt][$_GET['id_produit']]>$ligne['quantité_produit_restant']){
-                                                        $_SESSION['panier'][$idclt][$_GET['id_produit']]=$ligne['quantité_produit_restant'];
+                                                     if($idProduit==$ligne['product_id']){
+                                                       if($_SESSION['panier'][$idclt][$_GET['product_id']]>$ligne['remaining_product_quantity']){
+                                                        $_SESSION['panier'][$idclt][$_GET['product_id']]=$ligne['remaining_product_quantity'];
                                                       }
                                                      }
                                                     }
@@ -288,18 +162,7 @@ require_once 'db/db.php';
                                                     <input type=\"hidden\" name=\"quantitt\" value=\"1\">
                                                    </form>";
                                                   }
-                                                
-
-                                                 
-                                                  
                                                 ?> 
-                                                
-                                                   
-                                                     
-                                                
-                                                   
-                                                     
-
                                               </div>
                                           </div>
                                           <section style="margin-left:4px;">
@@ -339,14 +202,14 @@ require_once 'db/db.php';
                                                         <!-- inserer le table de livrai-->
                                                         <option value="" disabled selected >Choisire*</option>
                                                         <?php 
-                                                    $requet= $bd->prepare('SELECT * FROM ville'); 
+                                                    $requet= $bd->prepare('SELECT * FROM city'); 
                                                     $requet->execute();
                                                     $prod=$requet->fetchALL(PDO::FETCH_ASSOC);
                                                     foreach($prod as $ligne){
-                                                        if(isset($_GET['ville']) && $_GET['ville']==$ligne['id_ville']){
-                                                           echo"<option value=\"".$ligne['id_ville']."\" selected>".$ligne['nom_ville']."</option>";
+                                                        if(isset($_GET['ville']) && $_GET['ville']==$ligne['city_id']){
+                                                           echo"<option value=\"".$ligne['city_id']."\" selected>".$ligne['city_name']."</option>";
                                                         }else{
-                                                            echo"<option value=\"".$ligne['id_ville']."\">".$ligne['nom_ville']."</option>";
+                                                            echo"<option value=\"".$ligne['city_id']."\">".$ligne['city_name']."</option>";
                                                         }
                                                         
                                                     }
@@ -364,17 +227,17 @@ require_once 'db/db.php';
                                                        <?php 
                                                          if(isset($_GET['ville'])) {
                                                          $valeur = trim($_GET['ville']);
-                                                        $requet = $bd->prepare('SELECT * FROM lieu, ville WHERE lieu.id_ville = ville.id_ville AND ville.id_ville = :valeur'); 
+                                                        $requet = $bd->prepare('SELECT * FROM location, city WHERE location.city_id = city.city_id AND city.city_id = :valeur'); 
                                                          $requet->bindParam(':valeur', $valeur);
                                                           $requet->execute();
                                                           $dd = $requet->fetchAll(PDO::FETCH_ASSOC);
             
                                                             foreach($dd as $ligne) {
-                                                                 if(isset($_GET['lieu']) && $_GET['lieu'] == $ligne['id_lieu']) {
+                                                                 if(isset($_GET['lieu']) && $_GET['lieu'] == $ligne['location_id']) {
                                                                    
-                                                                      echo "<option value=\"" . $ligne['id_lieu'] . "\" selected>" . $ligne['nom_lieu'] . "</option>";
+                                                                      echo "<option value=\"" . $ligne['location_id'] . "\" selected>" . $ligne['location_name'] . "</option>";
                                                                   } else {
-                                                                      echo "<option value=\"" . $ligne['id_lieu'] . "\">" . $ligne['nom_lieu'] . "</option>";
+                                                                      echo "<option value=\"" . $ligne['location_id'] . "\">" . $ligne['location_name'] . "</option>";
                                                                       }
                                                                     }
                                                                   }

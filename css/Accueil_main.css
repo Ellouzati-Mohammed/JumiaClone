@@ -113,12 +113,12 @@ a#ass {
     align-items: center;
 }
  
-.main_col3{
+.main_col3{margin-bottom:150px ;
     font-family: Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;
     flex: 100%;
     width: 100%;
     box-sizing: border-box;
-   
+    
 }
 
 article a{

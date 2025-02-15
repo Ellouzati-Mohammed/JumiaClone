@@ -19,7 +19,7 @@
         <div class="header" style="display: flex; align-items: center; height: 64px; justify-content: center; margin: 0 0 8px; position: relative;">
             <img class="logo" src="../images/logojum" width="69" height="67">
         </div>
-
+ 
         <div class="card" style="background-color: #fff; border-radius: 4px; padding: 8px 24px;">
             <form method="post" action="emai_telel.php" onsubmit="return verification()">
                 <div style="display: block; margin-top: 12px;">

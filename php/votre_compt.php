@@ -4,7 +4,9 @@
     
     <link rel="stylesheet" href="../css/Accueil_banner.css">
     <link rel="stylesheet" href="../css/Accueil_header.css">
-    <link rel="stylesheet" href="../css/Accueil_main.css"> 
+    <link rel="stylesheet" href="../css/Accueil_main.css">
+    <link rel="stylesheet" href="../css/footer.css">  
+
     <title>Jumia Anniversaire 2023 | Meilleures offres de Téléphones, TVs, Mode, Maison, Beauté et plus</title>
 <link rel="icon" type="image/ico" sizes="any" href="https://www.jumia.ma/assets_he/favicon.87f00114.ico">
 
@@ -46,12 +48,11 @@
               <?php 
               
               
-              $requet = $bd->prepare('SELECT * FROM command, client, contenir, produit, imag
-                        WHERE client.id_client = command.id_client
-                        AND command.id_command = contenir.id_command
-                        AND contenir.id_produit = produit.id_produit
-                        AND produit.id_produit = imag.id_produit
-                        AND client.id_client = :val1');
+              $requet = $bd->prepare('SELECT * FROM order_, user, order_product, product
+                        WHERE user.user_id = order_.user_id
+                        AND order_.order_id = order_product.order_id
+                        AND order_product.Product_id = product.Product_id
+                        AND user.user_id = :val1');
               $requet->bindParam(':val1', $_SESSION['user']['user_id']);
               $requet->execute();
               $aff=$requet->fetchAll(PDO::FETCH_ASSOC);
@@ -77,18 +78,18 @@
                 
                            
               foreach($aff as $ligne){
-                $prix=$ligne['prix_produit'];
-                                  $disc=$ligne['disc'];
+                $prix=$ligne['product_price'];
+                                  $disc=$ligne['product_price'];
                                   $new_prix=$prix-($prix*$disc/100);
-                                  $prix_totale=$prix_totale+($new_prix*$ligne['quantité']);
+                                  $prix_totale=$prix_totale+($new_prix*$ligne['quantity']);
                                   if($disc==0){
                                   $new_prix=$prix;
                                   }
                                 echo "<article id=\"article_pan\" style=\"border-bottom: 1px solid #f1f1f2;margin-left: 16px;margin-right: 16px; padding-bottom: 0px; padding-top: 16px;background-color: #fff; \">
-                                       <a href=\"produit.php?id_produit={$ligne['id_produit']}\" style=\"padding: 0; text-decoration: none; display: flex; flex-direction: row; \">
-                                           <div><img src=\"{$ligne['source']}\" width=\"72\" height=\"82\"></div>
+                                       <a href=\"produit.php?id_produit={$ligne['Product_id']}\" style=\"padding: 0; text-decoration: none; display: flex; flex-direction: row; \">
+                                           <div><img src=\"{$ligne['product_image']}\" width=\"72\" height=\"82\"></div>
                                            <div style=\"padding-left: 16px ; padding-right: 16px; width:100%;\">
-                                              <h3 style=\"font-size: 1rem;font-weight: 400;margin: 0;padding: 0; margin-top:3px;margin-bottom:8px;\">{$ligne['nom_produit']}</h3>
+                                              <h3 style=\"font-size: 1rem;font-weight: 400;margin: 0;padding: 0; margin-top:3px;margin-bottom:8px;\">{$ligne['Product_name']}</h3>
                                               <p style=\"padding-top: 4px;margin: 0;padding: 0;font-size: .875rem;\"><span style=\"margin-right: 4px; color: #75757a; font-size: .875rem;\">Variation:</span>19g</p>
                            <!--la condition--><p style=\"font-size: .75rem;padding-top: 8px;margin: 0; color: #75757a;\">hhhghghgfh</p>
                                               <div style=\"margin-top:10px;\"><img src=\"../images/expr.png\" width=\"112\" height=\"13\" ></div>
@@ -101,13 +102,13 @@
                                                  </div>
                                            </div>
                                        </a>
-                                       <footer style=\"display: flex; font-size: .875rem; margin-top:10px; justify-content: space-between;margin-bottom:10px;\">
+                                       <div style=\"display: flex; font-size: .875rem; margin-top:10px; justify-content: space-between;margin-bottom:10px;\">
                                               <div id=\"acheterForm\">
-                                                 <div style=\"align-items: center; border-radius: 0; cursor: pointer; font-size: .875rem; text-align: center; font-weight: 500; color: black; background-color: transparent; border: 0; margin: 0; font-family: Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;\"><div style=\"display:flex; \"><span style=\"padding-left:10px; font-weight: 500;\">Quantité: ".$ligne['quantité']."</span></div></div>
+                                                 <div style=\"align-items: center; border-radius: 0; cursor: pointer; font-size: .875rem; text-align: center; font-weight: 500; color: black; background-color: transparent; border: 0; margin: 0; font-family: Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;\"><div style=\"display:flex; \"><span style=\"padding-left:10px; font-weight: 500;\">Quantité: ".$ligne['quantity']."</span></div></div>
                                                
                                               </div>
                                               
-                                       </footer>
+                                       </div>
                                 </article>";} 
                               }else{
                          echo"
@@ -153,7 +154,7 @@
                                                         <header style=\"border-bottom: 1px solid #d4d4d6;\"><h2 style=\"margin:0;font-size: .875rem;font-weight: 500;padding:16px;\">INFORMATIONS PERSONNELLES</h2></header>
                                                         <div style=\"padding: 8px;\">
                                                              <p style=\"font-size: 1rem;padding-left: 8px; padding-right: 8px; padding-top: 8px; margin: 0;\">".$_SESSION['user']['first_name']." ".$_SESSION['user']['last_name']."</p>
-                                                             <p style=\"font-size: .875rem;color: #75757a;padding-left: 8px; padding-right: 8px; padding-top: 8px; margin: 0;\">".$_SESSION['user']['email']."</p>
+                                                             <p style=\"font-size: .875rem;color: #75757a;padding-left: 8px; padding-right: 8px; padding-top: 8px; margin: 0;\">".$_SESSION['user']['Email']."</p>
                                                         </div>
                                           </article>
                                        </div>
@@ -328,6 +329,7 @@ echo"</div></section>";
        </div>
        
  </main>
+<?php include 'componnent/footer.html'; ?>
 </div>
 
 

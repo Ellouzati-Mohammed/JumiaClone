@@ -5,7 +5,8 @@
 <link rel="icon" type="image/ico" sizes="any" href="https://www.jumia.ma/assets_he/favicon.87f00114.ico">
 <link rel="stylesheet" href="../css/Accueil_banner.css">
 <link rel="stylesheet" href="../css/Accueil_header.css">
-<link rel="stylesheet" href="../css/Accueil_main.css">   
+<link rel="stylesheet" href="../css/Accueil_main.css"> 
+<link rel="stylesheet" href="../css/footer.css">  
 <link rel="stylesheet" href="../css/list.css">    
 <style>
    
@@ -220,7 +221,7 @@
                     </section>
               </div>
             
-              <div class="main_col3">
+              <div class="main_col3" style="margin-bottom:20px ;">
                            <section>
                                     <header style="display:flex; flex-direction: row; background-color: #ff9900; justify-content: space-between;  border-radius: 4px; padding-left: 16px; padding-right: 17px;
                                     padding-top: 10px; padding-bottom: 10px;">
@@ -275,6 +276,8 @@
               </div>
         </div>
      </main>
+     <?php include 'componnent/footer.html'; ?>
+
  </div>
 
 </body>

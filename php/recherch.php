@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="../css/Accueil_banner.css">
     <link rel="stylesheet" href="../css/Accueil_header.css">
     <link rel="stylesheet" href="../css/Accueil_main.css"> 
+    <link rel="stylesheet" href="../css/footer.css">  
     <title>Jumia Anniversaire 2023 | Meilleures offres de Téléphones, TVs, Mode, Maison, Beauté et plus</title>
 <link rel="icon" type="image/ico" sizes="any" href="https://www.jumia.ma/assets_he/favicon.87f00114.ico">
 
@@ -85,7 +86,7 @@
                                                  <input name="max_prix" type="number" placeholder="Max" style="font-size: .875rem; height: 32px; border: 0; margin: 0; padding: 1px 2px; border-radius: 4px; padding:0px 8px; width:112px;">
                                            </div>
                                               </div>
-                                        </form>
+                            </form>
                            <article style="padding-left: 8px; padding-right: 8px; border-top: 1px solid #f1f1f2; display: flex;flex-direction: column; padding-bottom:5px;">
                                     <header style="align-items: center; ">
                                             <h2 style="font-size: .875rem; font-weight: 500; padding-bottom: 8px; padding-top: 8px; margin: 0; padding-left:8px;">REMISE (%)</h>
@@ -259,14 +260,14 @@
                                        if(isset($_GET['max_prix'])||isset($_GET['min_prix'] )){
                                         
                                                 if(!isset($_GET['max_prix']) && !empty($_GET['min_prix'])){
-                                                  $requet= $bd->prepare('SELECT * FROM produit,imag,type,liste,catégorie where (imag.id_produit=produit.id_produit and produit.id_type=type.id_type and type.id_liste=liste.id_liste and liste.id_catégorie=catégorie.id_catégorie) and (nom_produit LIKE :valeur or nom_catégorie like :valeur or mark like :valeur or nom_type like :valeur) and prix_produit>=:valeur2'); 
+                                                  $requet= $bd->prepare('SELECT * FROM product,sub_category_title,sub_category,category where (product.Sub_category_title_id=Sub_category_title.Sub_category_title_id and Sub_category_title.Sub_category_id=Sub_category.Sub_category_id and sub_category.category_id=category.category_id) and (product_name LIKE :valeur or category_name like :valeur or brand like :valeur or sub_category_title_name like :valeur or sub_category_name like :valeur) and product_price>=:valeur2'); 
                                                   $requet->bindParam(':valeur2', $_GET['min_prix']);
                                                 }elseif(!isset($_GET['min_prix']) && !empty($_GET['max_prix'])){
-                                                  $requet= $bd->prepare('SELECT * FROM produit,imag,type,liste,catégorie where (imag.id_produit=produit.id_produit and produit.id_type=type.id_type and type.id_liste=liste.id_liste and liste.id_catégorie=catégorie.id_catégorie) and (nom_produit LIKE :valeur or nom_catégorie like :valeur or mark like :valeur or nom_type like :valeur) and prix_produit<=:valeur3 '); 
+                                                  $requet= $bd->prepare('SELECT * FROM product,sub_category_title,sub_category,category where (product.Sub_category_title_id=Sub_category_title.Sub_category_title_id and Sub_category_title.Sub_category_id=Sub_category.Sub_category_id and sub_category.category_id=category.category_id) and (product_name LIKE :valeur or category_name like :valeur or brand like :valeur or sub_category_title_name like :valeur or sub_category_name like :valeur) and product_price<=:valeur3 '); 
                                                   $requet->bindParam(':valeur3', $_GET['max_prix']);
                                                 }
                                                 if(isset($_GET['max_prix']) && isset($_GET['min_prix']) && !empty($_GET['max_prix']) && !empty($_GET['min_prix'])){
-                                                  $requet= $bd->prepare('SELECT * FROM produit,imag,type,liste,catégorie where (imag.id_produit=produit.id_produit and produit.id_type=type.id_type and type.id_liste=liste.id_liste and liste.id_catégorie=catégorie.id_catégorie) and (nom_produit LIKE :valeur or nom_catégorie like :valeur or mark like :valeur or nom_type like :valeur) and prix_produit<=:valeur3 and prix_produit>=:valeur2 '); 
+                                                  $requet= $bd->prepare('SELECT * FROM product,sub_category_title,sub_category,category where (product.Sub_category_title_id=Sub_category_title.Sub_category_title_id and Sub_category_title.Sub_category_id=Sub_category.Sub_category_id and sub_category.category_id=category.category_id) and (product_name LIKE :valeur or category_name like :valeur or brand like :valeur or sub_category_title_name like :valeur or sub_category_name like :valeur) and product_price<=:valeur3 and product_price>=:valeur2 '); 
                                                   $requet->bindParam(':valeur3', $_GET['max_prix']);
                                                   $requet->bindParam(':valeur2', $_GET['min_prix']);
                                                 }
@@ -275,14 +276,14 @@
                                        }
                                        if(isset($_GET['r'])){
                                            if(!empty($_GET['r'])){
-                                            $requet= $bd->prepare('SELECT * FROM produit,imag,type,liste,catégorie where (imag.id_produit=produit.id_produit and produit.id_type=type.id_type and type.id_liste=liste.id_liste and liste.id_catégorie=catégorie.id_catégorie) and (nom_produit LIKE :valeur or nom_catégorie like :valeur or mark like :valeur or nom_type like :valeur) and disc>= :valeur2 '); 
+                                            $requet= $bd->prepare('SELECT * FROM product,sub_category_title,sub_category,category where (product.Sub_category_title_id=Sub_category_title.Sub_category_title_id and Sub_category_title.Sub_category_id=Sub_category.Sub_category_id and sub_category.category_id=category.category_id) and (product_name LIKE :valeur or category_name like :valeur or brand like :valeur or sub_category_title_name like :valeur or sub_category_name like :valeur) and discount>= :valeur2 '); 
                                             $requet->bindParam(':valeur2', $_GET['r']);
                                            }
                                            
                                        }
                                        if(isset($_GET['mark'])){
                                         if(!empty($_GET['mark'])){
-                                         $requet= $bd->prepare('SELECT * FROM produit,imag,type,liste,catégorie where (imag.id_produit=produit.id_produit and produit.id_type=type.id_type and type.id_liste=liste.id_liste and liste.id_catégorie=catégorie.id_catégorie) and (nom_produit LIKE :valeur or nom_catégorie like :valeur or mark like :valeur or nom_type like :valeur) and mark= :valeur2 '); 
+                                         $requet= $bd->prepare('SELECT * FROM product,sub_category_title,sub_category,category where (product.Sub_category_title_id=Sub_category_title.Sub_category_title_id and Sub_category_title.Sub_category_id=Sub_category.Sub_category_id and sub_category.category_id=category.category_id) and (product_name LIKE :valeur or category_name like :valeur or brand like :valeur or sub_category_title_name like :valeur or sub_category_name like :valeur) and brand= :valeur2 '); 
                                          $requet->bindParam(':valeur2', $_GET['mark']);
                                         }
                                         
@@ -323,7 +324,7 @@
                                                               </div>
                                                     </div>
                                              </a>
-                                                <footer style=\"padding-left: 8px; padding-right: 8px; padding-top: 8px; display: flex;flex-direction: column;\">
+                                                <div style=\"padding-left: 8px; padding-right: 8px; padding-top: 8px; display: flex;flex-direction: column;\">
                                                      <div style=\"position: relative;display: flex; align-items: center; justify-content: center;\">";
                                                      $existsInCart = false;
                                                  
@@ -337,18 +338,18 @@
                                                  
                                                         foreach ($_SESSION['panier'][$idclt] as $idProduit => $quantite) {
                                                           $idProduit = trim($idProduit); 
-                                                          if ($idProduit == $ligne['id_produit']) {
+                                                          if ($idProduit == $ligne['Product_id']) {
                                                               // Le produit est présent dans le panier
                                                               $existsInCart = true;
                                                               break;
                                                           }}
                                                     
-                                                          $formId = "acheterForm_" . $ligne['id_produit'];
+                                                          $formId = "acheterForm_" . $ligne['Product_id'];
                                                               if ($existsInCart){
                                
                                                                echo"<form id=\"$formId\" action=\"panier.php\" method=\"post\" style=\"  margin-left:0;  box-shadow: 0 1px 0px 0 rgba(0,0,0,.05); padding-bottom:29px;\">
-                                                               <input type=\"text\" value=\"".$_SESSION['panier'][$idclt][$ligne['id_produit']]."\" placeholder=\"Entrez la quantité\" name=\"quantitt\" style=\"padding:10px 0px; border-radius: 4px;  font-size: 14px; width:120px;  border:1px solid grey; padding-left:4px;box-shadow: 0 2px 8px 0 rgba(0,0,0,.05);\">
-                                                               <input type=\"hidden\" name=\"achéte\" value=\" ".$ligne['id_produit']." \">
+                                                               <input type=\"text\" value=\"".$_SESSION['panier'][$idclt][$ligne['Product_id']]."\" placeholder=\"Entrez la quantité\" name=\"quantitt\" style=\"padding:10px 0px; border-radius: 4px;  font-size: 14px; width:120px;  border:1px solid grey; padding-left:4px;box-shadow: 0 2px 8px 0 rgba(0,0,0,.05);\">
+                                                               <input type=\"hidden\" name=\"achéte\" value=\" ".$ligne['Product_id']." \">
                                                                <button type=\"submit\"  style=\"padding-top:11px;padding-bottom:11px; background-color: #f68b1e; box-shadow: 0 2px 8px 0 rgba(0,0,0,.05); font-size: 13px; color: white; border: 0px ; cursor: pointer; border-radius: 4px; font-weight: 500;\">VALIDE</button>
                                                               </form>";
                                                               
@@ -358,14 +359,14 @@
                                                                
                                                                 
                                                          echo"<form id=\"$formId\" action=\"panier.php\" method=\"post\" style=\" width:100%;\">
-                                                           <input type=\"hidden\" name=\"achéte\" value=\"".$ligne['id_produit']."\">
+                                                           <input type=\"hidden\" name=\"achéte\" value=\"".$ligne['Product_id']."\">
                                                            <button type=\"submit\"  class=\"but2\" style=\"color: #fff; width: 100%;  padding-bottom: 12px; padding-top: 12px;padding-left: 16px; padding-right: 16px; box-shadow: 0 4px 8px 0 rgba(0,0,0,.2); position: relative; background-color: #f68b1e; cursor: pointer; font-size: .875rem; line-height: 1rem; text-align: center; font-weight: 500; border: 0; border-radius: 4px; margin: 0;\">AJOUTER AU PANIER</button>
                                                            <input type=\"hidden\" name=\"quantitt\" value=\"1\">
                                                          </form>";
                                                         }
                                                   
                                                  echo"</div>
-                                                       </footer>
+                                                       </div>
                                                          </article>";
                                           }
 
@@ -383,7 +384,8 @@
              <div></div>
        </div>
     
- </main>
+ </main>  
+<?php include 'componnent/footer.html'; ?>
 </div>
 <script>
   function submitForm() {
@@ -394,7 +396,7 @@
 <script>
   $(document).ready(function() {
     <?php foreach ($prod as $ligne) { ?>
-      $('#acheterForm_<?php echo $ligne['id_produit']; ?>').submit(function(event) {
+      $('#acheterForm_<?php echo $ligne['product_id']; ?>').submit(function(event) {
         event.preventDefault();
         var formData = $(this).serialize();
         var button = $(this).find('button[type="submit"]');

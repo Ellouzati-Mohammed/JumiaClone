@@ -7,6 +7,7 @@
 <link rel="icon" type="image/ico" sizes="any" href="https://www.jumia.ma/assets_he/favicon.87f00114.ico">
 <link rel="stylesheet" href="../css/Accueil_banner.css">
 <link rel="stylesheet" href="../css/Accueil_header.css">
+<link rel="stylesheet" href="../css/footer.css">  
    
 <meta charset="UTF-8">
 <?php 
@@ -119,23 +120,25 @@ require_once 'db/db.php';
 
                                                   if ($existsInCart) {
                                                     $valeur=$_GET['id_produit'];
-                                                    $requet= $bd->prepare('SELECT * FROM product where  product.id_product = :valeur'); 
+                                                    $requet= $bd->prepare('SELECT * FROM product where  product.Product_id = :valeur'); 
                                                     $requet->bindParam(':valeur', $valeur);
                                                     $requet->execute();
                                                     $prod=$requet->fetchALL(PDO::FETCH_ASSOC);
                                                     foreach($prod as $ligne){
+                                                     
                                                       
-                                                     if($idProduit==$ligne['product_id']){
-                                                       if($_SESSION['panier'][$idclt][$_GET['product_id']]>$ligne['remaining_product_quantity']){
-                                                        $_SESSION['panier'][$idclt][$_GET['product_id']]=$ligne['remaining_product_quantity'];
+                                                      if($idProduit==$ligne['Product_id']){
+                                                        if($_SESSION['panier'][$idclt][$_GET['id_produit']]>$ligne['remaining_product_quantity']){
+                                                         $_SESSION['panier'][$idclt][$_GET['id_produit']]=$ligne['remaining_product_quantity'];
+                                                       }
                                                       }
-                                                     }
                                                     }
 
                                                     echo"<form id=\"acheterForm\" action=\"panier.php\" method=\"post\" style=\" margin-top:35px; margin-left:0;  box-shadow: 0 1px 0px 0 rgba(0,0,0,.05); padding-bottom:29px;\">
                                                     <input type=\"text\" value=\"".$_SESSION['panier'][$idclt][$_GET['id_produit']]."\" placeholder=\"Entrez la quantité\" name=\"quantitt\" style=\"padding:5px 0px; border-radius: 4px;  font-size: 14px; width:120px;  border:1px solid grey; padding-left:4px;box-shadow: 0 2px 8px 0 rgba(0,0,0,.05);\">
                                                     <input type=\"hidden\" name=\"achéte\" value=\" ".$_GET['id_produit']." \">
                                                     ";
+
                                                     if(isset($_GET['ville']) && isset($_GET['lieu'])){
                                                       $_SESSION['cmd'][$idclt][$_GET['id_produit']]['ville']=$_GET['ville'];
                                                       $_SESSION['cmd'][$idclt][$_GET['id_produit']]['lieu']=$_GET['lieu'];
@@ -163,6 +166,9 @@ require_once 'db/db.php';
                                                    </form>";
                                                   }
                                                 ?> 
+                                              </div>
+                                              <div id="alert_lieu" style="display:none;text-shadow: 0.5px 0.5px 8px rgba(0, 0, 0, 0.36);;font-weight:bold;font-size:15px;color: rgb(255, 255, 255); background-color:rgba(255, 0, 0, 0.66); margin-right:10px;padding:14px;border-radius:5px;">
+                                              Choisissez un lieu !!!
                                               </div>
                                           </div>
                                           <section style="margin-left:4px;">
@@ -317,7 +323,8 @@ require_once 'db/db.php';
              </div>
       </div>
 
-    </main>
+    </main> 
+    <?php include 'componnent/footer.html'; ?>
 <!-- envoiyer la form+actualiser la page+ reste dans le meme page-->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -327,8 +334,16 @@ require_once 'db/db.php';
 <script>
   $(document).ready(function() {
     $('#acheterForm').submit(function(event) {
-      event.preventDefault(); 
+      event.preventDefault();
+      var selectedLieu = $('select[name="lieu"]').val(); // Récupère la valeur du lieu sélectionné
+      var alert= document.getElementById('alert_lieu')
+      if (!selectedLieu) { // Vérifie si aucun lieu n'est sélectionné
+        alert.style.display="block";
+        return; // Stoppe l'exécution de la requête AJAX
+      } 
+      alert.style.display="none";
       var formData = $(this).serialize();
+
       $.ajax({
         url: 'panier.php',
         type: 'POST',
@@ -337,7 +352,6 @@ require_once 'db/db.php';
           location.reload();
         },
         error: function(xhr, status, error) {
-          // Gérer les erreurs de la requête AJAX ici
         }
       });
     });

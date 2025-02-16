@@ -9,6 +9,60 @@
     <title>Jumia Anniversaire 2023 | Meilleures offres de Téléphones, TVs, Mode, Maison, Beauté et plus</title>
 <link rel="icon" type="image/ico" sizes="any" href="https://www.jumia.ma/assets_he/favicon.87f00114.ico">
 
+                                   
+<style>
+ 
+
+.slider-container {
+    position: relative;
+    width: 85%;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.slider-track {
+    position: absolute;
+    height: 5px;
+    background: #ff6600;
+    border-radius: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+input[type="range"] {
+    position: absolute;
+    width: 100%;
+    appearance: none;
+    background: transparent;
+    z-index: 2; /* Permet aux curseurs d'être au-dessus de la barre */
+    pointer-events: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 5px;
+    background: #ddd;
+    border-radius: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #ff6600;
+    border-radius: 50%;
+    pointer-events: auto; /* Active le glissement des curseurs */
+    position: relative;
+    margin-top: -5px;
+    z-index: 3; /* Assure que les curseurs restent au-dessus de tout */
+}
+
+
+</style>
     <?php session_start();
     require_once 'db/db.php';
      ?>
@@ -25,7 +79,7 @@
               <div style="padding: 8px; width: 100%; font-size: .75rem; overflow: hidden;"></div>
        </div>
        <div style="padding-bottom: 16px; margin-left: auto; margin-right: auto; width: 1184px; position: relative;  display: flex; flex-direction: row; flex-wrap: wrap;">
-             <div action="recherch.php" method="get" style="padding-bottom: 8px; padding-top: 8px; align-self: flex-start; width: 25%; padding-left: 0px; padding-right: 15px; display: flex; flex-direction: column;">
+             <div style="padding-bottom: 8px; padding-top: 8px; align-self: flex-start; width: 25%; padding-left: 0px; padding-right: 15px; display: flex; flex-direction: column;">
              <div style="height: 100%; box-shadow: 0 2px 5px 0 rgba(0,0,0,.05); background-color: #fff; border-radius: 4px; display: flex; flex-direction: column;">
                           <article class="les_categ" style=" font-size: .875rem;display: flex; flex-direction: column;">
                                  <h2 style="font-size: .875rem; font-weight: 500; padding-left: 16px; padding-bottom: 8px; padding-right: 16px; padding-top: 8px; margin: 0; color: #313133;">CATÉGORIE</h2>
@@ -45,8 +99,6 @@
                                               $categoriesAffichees[] = $nomCategorie;
                                                    }
                                                }
-                                  
-                                  
                                   ?>
                            </article>
                            <article  style="padding-left: 8px; padding-right: 8px; border-top: 1px solid #f1f1f2; display: flex;flex-direction: column;">
@@ -71,21 +123,31 @@
                                            <h2 style="font-size: .875rem; font-weight: 500; padding-bottom: 4px; padding-top: 4px; margin:0;">PRIX (DHS)</h2>
                                            <button style="padding: 0; position: relative; border-radius: 0; cursor: pointer; font-size: 1.1rem; text-align: center; font-weight: 500; color: #f68b1e; background-color: transparent; border: 0; margin-right:5px;">ok</button>
                                     </header>
-                                    <div style="margin-left:8px; margin-right:14px;">
-                                         <div style="margin-bottom: 16px; width: 100%; height: 5px; position: relative; top: 11px; left: 0; background-color: #d4d4d6; ">
-                                         </div>
-                                    </div>
-                                    <div style="width: 100%; align-items: center; display: flex; flex-direction: row; margin-left:8px; margin-top:20px;">
-                                           <input type="hidden" name="Recherch" value="<?php echo $_GET['Recherch']?>">
-                 
-                                           <div style="border: 1px solid #a3a3a6; border-radius: 4px; display:flex; align-items: center; margin-right:8px;">
-                                                 <input name="min_prix" type="text" placeholder="Min" style="font-size: .875rem; height: 32px; border: 0; margin: 0; padding: 1px 2px; border-radius: 4px; padding:0px 8px; width:112px;">
-                                           </div>
-                                           <span>-</span>
-                                           <div style="border: 1px solid #a3a3a6; border-radius: 4px; display:flex; align-items: center; margin-left:8px;">
-                                                 <input name="max_prix" type="number" placeholder="Max" style="font-size: .875rem; height: 32px; border: 0; margin: 0; padding: 1px 2px; border-radius: 4px; padding:0px 8px; width:112px;">
-                                           </div>
+                                 
+                                    <div style="width: 100%; align-items: center; margin-left:8px; margin-top:20px;">
+                                              <div class="slider-container">
+                                                <div class="slider-track"></div>
+                                                <?php
+                                                 $max = isset($_GET['max_prix']) ? $_GET['max_prix'] : 98000; 
+                                                 $min = isset($_GET['min_prix']) ? $_GET['min_prix'] : 0; 
+                                                ?>
+                                                
+                                                <input type="range" id="min-price" min="0" max="98000" step="10" value=<?php if (isset($min) && !empty($min)) echo $min; ?>>
+                                                <input type="range" id="max-price" min="0" max="98000" step="10" value=<?php if (isset($max) && !empty($max)) echo $max; ?>>
                                               </div>
+                                              
+                                          <div style="display: flex;flex-direction:row;">
+                                              <input type="hidden" name="Recherch" value="<?php echo $_GET['Recherch']?>">
+                 
+                                              <div style="border: 1px solid #a3a3a6; border-radius: 4px; display:flex; align-items: center; margin-right:8px;">
+                                                 <input id="min_prix" name="min_prix" type="text" placeholder="Min" style="font-size: .875rem; height: 32px; border: 0; margin: 0; padding: 1px 2px; border-radius: 4px; padding:0px 8px; width:112px;">
+                                               </div>
+                                              <span>-</span>
+                                              <div style="border: 1px solid #a3a3a6; border-radius: 4px; display:flex; align-items: center; margin-left:8px;">
+                                                    <input id="max_prix" name="max_prix" type="number" placeholder="Max" style="font-size: .875rem; height: 32px; border: 0; margin: 0; padding: 1px 2px; border-radius: 4px; padding:0px 8px; width:112px;">
+                                              </div>
+                                           </div>
+                                    </div>
                             </form>
                            <article style="padding-left: 8px; padding-right: 8px; border-top: 1px solid #f1f1f2; display: flex;flex-direction: column; padding-bottom:5px;">
                                     <header style="align-items: center; ">
@@ -96,13 +158,13 @@
                                     
                                             
                                             <input type="hidden" name="Recherch" value="<?php echo $_GET['Recherch']?>">
-                 
-                                                <div style="margin-bottom: 15px; display:flex; align-items: center;"> <input type="radio" name="r" value="50" onchange="submitForm()"><label style="margin-left:5px;">50% et plus</label></div>
-                                                <div style="margin-bottom: 15px; display:flex; align-items: center;"> <input type="radio" name="r" value="40" onchange="submitForm()"><label style="margin-left:5px;">40% et plus</label></div>
-                                                <div style="margin-bottom: 15px; display:flex; align-items: center;"> <input type="radio" name="r" value="30" onchange="submitForm()"><label style="margin-left:5px;">30% et plus</label></div>
-                                                <div style="margin-bottom: 15px; display:flex; align-items: center;"> <input type="radio" name="r" value="20" onchange="submitForm()"><label style="margin-left:5px;">20% et plus</label></div>
-                                                <div style="margin-bottom: 15px; display:flex; align-items: center;"> <input type="radio" name="r" value="10" onchange="submitForm()"><label style="margin-left:5px;">10% et plus</label></div>
-                                                <div style="margin-bottom: 15px; display:flex; align-items: center;"> <input type="radio" name="r" value=""  onchange="submitForm()"><label style="margin-left:5px;">Toutes</label></div>
+                                                <?php $selected_choix = isset($_GET['r']) ? $_GET['r'] : ''; ?>
+                                                <div style="margin-bottom: 15px; display:flex; align-items: center;"> <input type="radio" name="r" value="50" onchange="submitForm()" <?php if ($selected_choix == 50) echo 'checked'; ?>><label style="margin-left:5px;">50% et plus</label></div>
+                                                <div style="margin-bottom: 15px; display:flex; align-items: center;"> <input type="radio" name="r" value="40" onchange="submitForm()" <?php if ($selected_choix == 40) echo 'checked'; ?>><label style="margin-left:5px;">40% et plus</label></div>
+                                                <div style="margin-bottom: 15px; display:flex; align-items: center;"> <input type="radio" name="r" value="30" onchange="submitForm()" <?php if ($selected_choix == 30) echo 'checked'; ?>><label style="margin-left:5px;">30% et plus</label></div>
+                                                <div style="margin-bottom: 15px; display:flex; align-items: center;"> <input type="radio" name="r" value="20" onchange="submitForm()" <?php if ($selected_choix == 20) echo 'checked'; ?>><label style="margin-left:5px;">20% et plus</label></div>
+                                                <div style="margin-bottom: 15px; display:flex; align-items: center;"> <input type="radio" name="r" value="10" onchange="submitForm()" <?php if ($selected_choix ==10) echo 'checked'; ?>><label style="margin-left:5px;">10% et plus</label></div>
+                                                <div style="margin-bottom: 15px; display:flex; align-items: center;"> <input type="radio" name="r" value=""  onchange="submitForm()" <?php if ($selected_choix == '') echo 'checked'; ?>><label style="margin-left:5px;">Toutes</label></div>
                                             
                                       </form>
                            </article>
@@ -442,10 +504,43 @@
 
 </body>
 
-<!---webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    display: -webkit-box;
-    white-space: normal;
-line-height: 1.4;-->
+<script>
+const minPriceInput = document.getElementById("min-price");
+const maxPriceInput = document.getElementById("max-price");
+const priceRangeTextmax = document.getElementById("max_prix")
+const priceRangeTextmin = document.getElementById("min_prix")
+const products = document.querySelectorAll(".product");
+const sliderTrack = document.querySelector(".slider-track");
 
+function updatePriceFilter() {
+    let minPrice = parseInt(minPriceInput.value);
+    let maxPrice = parseInt(maxPriceInput.value);
+    if (minPrice > maxPrice) {
+        let temp = minPrice;
+        minPrice = maxPrice;
+        maxPrice = temp;
+    }
+    priceRangeTextmax.value = maxPrice;
+    priceRangeTextmin.value=minPrice;
+    let minPercent = ((minPrice - minPriceInput.min) / (minPriceInput.max - minPriceInput.min)) * 100;
+    let maxPercent = ((maxPrice - minPriceInput.min) / (maxPriceInput.max - minPriceInput.min)) * 100;
+    sliderTrack.style.left = `${minPercent}%`;
+    sliderTrack.style.right = `${100 - maxPercent}%`;
+    products.forEach(product => {
+        let productPrice = parseInt(product.getAttribute("data-price"));
+        if (productPrice >= minPrice && productPrice <= maxPrice) {
+            product.style.display = "block";
+        } else {
+            product.style.display = "none";
+        }
+    });
+}
+
+minPriceInput.addEventListener("input", updatePriceFilter);
+maxPriceInput.addEventListener("input", updatePriceFilter);
+
+updatePriceFilter();
+
+</script>
 </html>
+

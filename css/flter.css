@@ -1,0 +1,50 @@
+
+
+.slider-container {
+    position: relative;
+    width: 85%;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.slider-track {
+    position: absolute;
+    height: 5px;
+    background: #ff6600;
+    border-radius: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+input[type="range"] {
+    position: absolute;
+    width: 100%;
+    appearance: none;
+    background: transparent;
+    z-index: 2; /* Permet aux curseurs d'être au-dessus de la barre */
+    pointer-events: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 5px;
+    background: #ddd;
+    border-radius: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #ff6600;
+    border-radius: 50%;
+    pointer-events: auto; /* Active le glissement des curseurs */
+    position: relative;
+    margin-top: -5px;
+    z-index: 3; /* Assure que les curseurs restent au-dessus de tout */
+}
+

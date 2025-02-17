@@ -6,63 +6,12 @@
     <link rel="stylesheet" href="../css/Accueil_header.css">
     <link rel="stylesheet" href="../css/Accueil_main.css"> 
     <link rel="stylesheet" href="../css/footer.css">  
+    <link rel="stylesheet" href="../css/flter.css"> 
     <title>Jumia Anniversaire 2023 | Meilleures offres de Téléphones, TVs, Mode, Maison, Beauté et plus</title>
 <link rel="icon" type="image/ico" sizes="any" href="https://www.jumia.ma/assets_he/favicon.87f00114.ico">
 
                                    
-<style>
- 
 
-.slider-container {
-    position: relative;
-    width: 85%;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.slider-track {
-    position: absolute;
-    height: 5px;
-    background: #ff6600;
-    border-radius: 5px;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 0;
-    right: 0;
-    z-index: 9999;
-}
-
-input[type="range"] {
-    position: absolute;
-    width: 100%;
-    appearance: none;
-    background: transparent;
-    z-index: 2; /* Permet aux curseurs d'être au-dessus de la barre */
-    pointer-events: none;
-}
-
-input[type="range"]::-webkit-slider-runnable-track {
-    height: 5px;
-    background: #ddd;
-    border-radius: 5px;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-    appearance: none;
-    width: 15px;
-    height: 15px;
-    background: #ff6600;
-    border-radius: 50%;
-    pointer-events: auto; /* Active le glissement des curseurs */
-    position: relative;
-    margin-top: -5px;
-    z-index: 3; /* Assure que les curseurs restent au-dessus de tout */
-}
-
-
-</style>
     <?php session_start();
     require_once 'db/db.php';
      ?>
@@ -168,75 +117,7 @@ input[type="range"]::-webkit-slider-thumb {
                                             
                                       </form>
                            </article>
-                           <article style="padding-left: 8px; padding-right: 8px; border-top: 1px solid #f1f1f2; display: flex;flex-direction: column; padding-bottom:5px;">
-                                    <header style="align-items: center; ">
-                                            <h2 style="font-size: .875rem; font-weight: 500; padding-bottom: 8px; padding-top: 8px; margin: 0; padding-left:8px;">MARQUE</h>
-                                            <div style="margin-bottom: 4px; margin-top: 4px; padding-left: 8px; padding-right: 8px; height: 32px;border: 1px solid #a3a3a6; border-radius: 99px; display:flex; align-items: center;">
-                                                     <img src="../images/chrch.png" width="18px" height="18px">
-                                                     <input type="search" placeholder="Chercher" name="cherch-mark" style="font-size: .875rem; height: 100%; width: 100%; verflow: hidden; border: 0; margin: 0; border-radius: 99px; outline: 0; margin-left:11px;">
-                                            </div>
-                                    </header>
-                                    <div style="padding-left: 8px; padding-bottom: 4px; padding-right: 8px; padding-top: 4px; height: 168px; display:flex; flex-direction: column; overflow-y: auto; border-radius: 3px;">
-                                           <?php
-                                            $requete5 = $bd->prepare('SELECT * FROM product');
-                                            $requete5->execute();
-                                            $lignes = $requete5->fetchAll(PDO::FETCH_ASSOC);
-                                            $marquesAffichees = array();
-                                            
-                                            foreach ($lignes as $ligne) {
-                                                $mark = $ligne['brand'];
-                                                
-                                                if (!in_array($mark, $marquesAffichees)) {
-                                                    echo "<a href=\"recherch.php?Recherch=".$_GET['Recherch']."&mark=".$mark."\" style=\"margin-left: 8px; margin-bottom: 13px; margin-right: 4px; margin-top: 6px; position: relative; align-items: center; font-size: .875rem;\">".$mark."</a>";
-                                                    
-                                                    $marquesAffichees[] = $mark; // Ajouter la marque au tableau des marques affichées
-                                                }
-                                            }
-                                           
-                                           ?>
-                                          
-                                    </div>
-                           </article>
-
-                           <article style="padding-left: 8px; padding-right: 8px; border-top: 1px solid #f1f1f2; display: flex;flex-direction: column; padding-bottom:5px;">
-                                    <header style="align-items: center; ">
-                                            <h2 style="font-size: .875rem; font-weight: 500; padding-bottom: 8px; padding-top: 8px; margin: 0; padding-left:8px;">TAILLE</h>
-                                            <div style="margin-bottom: 4px; margin-top: 4px; padding-left: 8px; padding-right: 8px; height: 32px;border: 1px solid #a3a3a6; border-radius: 99px; display:flex; align-items: center;">
-                                                     <img src="../images/chrch.png" width="18px" height="18px">
-                                                     <input type="search" placeholder="Chercher" name="cherch-mark" style="font-size: .875rem; height: 100%; width: 100%; verflow: hidden; border: 0; margin: 0; border-radius: 99px; outline: 0; margin-left:11px;">
-                                            </div>
-                                    </header>
-                                    <div style="padding-left: 8px; padding-bottom: 4px; padding-right: 8px; padding-top: 4px; height: 168px; display:flex; flex-direction: column; overflow-y: auto; border-radius: 3px;">
-                                    <?php
-                                    $requete6 = $bd->prepare('SELECT * FROM product');
-                                            $requete6->execute();
-                                            $lignes = $requete6->fetchAll(PDO::FETCH_ASSOC);
-                                            $taillAffichees = array();
-                                            
-                                            foreach ($lignes as $ligne) {
-                                                $taill = $ligne['taill'];
-                                                
-                                                if (!in_array($taill, $taillAffichees)) {
-                                                    echo "<a href=\"recherch.php?Recherch=".$_GET['Recherch']."&taill=".$taill."\" style=\"margin-left: 8px; margin-bottom: 13px; margin-right: 4px; margin-top: 6px; position: relative; align-items: center; font-size: .875rem;\">".$taill."</a>";
-                                           
-                                                    $marquesAffichees[] = $taill; // Ajouter la marque au tableau des marques affichées
-                                                }
-                                            }?>
-                                           
-                                    </div>
-                           </article>
-                           <article style="padding-left: 8px; padding-right: 8px; border-top: 1px solid #f1f1f2; display: flex;flex-direction: column; padding-bottom:5px;">
-                                    <header style="align-items: center; ">
-                                            <h2 style="font-size: .875rem; font-weight: 500; padding-bottom: 8px; padding-top: 8px; margin: 0; padding-left:8px;">ÉVALUATION CLIENTS</h>
-                                    </header>
-                                    <div style="padding-left: 8px; padding-bottom: 4px; padding-right: 8px; padding-top: 4px; height: auto; display:flex; flex-direction: column; overflow-y: auto; border-radius: 3px;">
-                                    <a href="" style="margin-left: 8px; margin-bottom: 13px; margin-right: 4px; margin-top: 4px; position: relative; align-items: center; font-size: .875rem;"><img src="../images/4+.png" width="80" height="13">Aichun Beauty</a>
-                                    <a href="" style="margin-left: 8px; margin-bottom: 13px; margin-right: 4px; margin-top: 4px; position: relative; align-items: center; font-size: .875rem;"><img src="../images/3+.png" width="80" height="13">Aichun Beauty</a>
-                                    <a href="" style="margin-left: 8px; margin-bottom: 13px; margin-right: 4px; margin-top: 4px; position: relative; align-items: center; font-size: .875rem;"><img src="../images/2+.png" width="80" height="13">Aichun Beauty</a>
-                                    <a href="" style="margin-left: 8px; margin-bottom: 13px; margin-right: 4px; margin-top: 4px; position: relative; align-items: center; font-size: .875rem;"><img src="../images/1+.png" width="80" height="13">Aichun Beauty</a>
-                                           
-                                    </div>
-                           </article>
+                          
                   </div>
                 </div>
              <div style=" padding-bottom: 8px; padding-top: 8px; width: 75%; padding-left: 8px; padding-right: 8px;">
@@ -372,8 +253,8 @@ input[type="range"]::-webkit-slider-thumb {
                                           echo"
                                           <article class=\"but1\" style=\"width: calc(25% - 8px);  margin: 4px;  padding-left: 0; padding-bottom: 8px; padding-right: 0; display:flex; flex-direction: column; overflow: hidden; border-radius: 4px; background-color: #fff;\">
                                              <a href=\"produit.php?id_produit=".$ligne['Product_id']."\" style=\"text-decoration: none; color:inherit;  font-size: .75rem; height:360px;\">
-                                                    <div style=\"margin-bottom: 4px; position: relative; display: block;\">
-                                                            <img style=\" width: 100%; height:230px;\" src=\" ".$image."\">
+                                                    <div style=\"margin-bottom: 4px; position: relative; display: flex;height:230px;align-items: center;justify-content: center;\">
+                                                            <img style=\" width: 100%;max-height:230px; \" src=\" ".$image."\">
                                                             <span style=\" color: #FFFFFF; background: #6AACD5; top: 8px; left: 8px; position: absolute; font-size: .625rem; min-height: 18px; font-weight: 500; padding-left: 4px;  padding-right: 4px; align-items: center; justify-content: center; display: inline-flex; border-radius: 2px; \">Offre Anniversaire</span>
                                                     </div>
                                                     <div style=\" padding-left: 8px; padding-bottom: 8px; padding-right: 8px; display: block;\">

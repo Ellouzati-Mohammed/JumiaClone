@@ -63,7 +63,7 @@ require_once 'db/db.php';
             <section style=" width: 75%;   padding-right: 8px; padding-left: 8px; border-radius: 5px;height: 100%;">
                             <div style="height: 655px;border-radius: 4px; background-color: white; display: flex; flex-direction: row; flex-wrap: wrap; padding: 8px; padding-right: 0; ">
                                     <div class="image_prd_info" style="padding-left: 8px; display: flex; flex-direction: column;  width: 37.5%; padding-top: 8px;">
-                                          <div style=" width: 94%; height: 315px; display: flex; justify-content: center;  box-shadow: 0 1.5px 1px 0 rgba(0, 0, 0, .04);"><img width="97%" src="<?php echo $image; ?>"> </div>
+                                          <div style=" width: 94%; height: 315px; display: flex; justify-content: center;  box-shadow: 0 1.5px 1px 0 rgba(0, 0, 0, .04);"><img style="max-width: 97%;object-fit: contain;" src="<?php echo $image; ?>"> </div>
                                           <section class="partag" style="padding-bottom: 8px; display: block;">
                                             <h2 style="font-weight: 500; padding-bottom: 2px; font-size: .875rem;">PARTAGEZ CE PRODUIT</h2>
                                             <div><img src="../images/facebook.png" width="30px" height="28px"><img src="../images/twitr.png" width="28px" height="28px" style="margin-left: 5px;"></div>
@@ -83,7 +83,7 @@ require_once 'db/db.php';
                                               <div class="livraison" style="margin-top: 8px; margin-left: 0.5px;"><img src="../images/livre.png" width="100px" height="15px"></div>
                                               <div class="prix_dismount_info" style="box-shadow: 0 1.5px 5px 0 rgba(0, 0, 0, .04); padding-bottom: 16px;">
                                                      <div class="prix_dismount" style="margin-top: 14px;">
-                                                           <div style="font-size: 1.5rem; font-weight: 700;"><?php echo $new_prix;?> Dhs</div>
+                                                           <div style="font-size: 1.5rem; font-weight: 700; padding:7px 0 7px 0;"><?php echo $new_prix;?> Dhs</div>
                                                            <?php
                                                            if($ligne['discount']!=0){
                                                             echo"<div style=\"display: flex; flex-direction: row;\">

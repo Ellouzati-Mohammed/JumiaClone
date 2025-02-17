@@ -228,8 +228,8 @@
                                            <div><span style="font-size: 1.25rem; font-weight: 500; align-items: center;">Les mieux notés</span></div>
                                            <div><a href="" style="text-decoration: none; color: rgb(46, 46, 46);     font-weight: 500; font-size: 15px;">VOIR PLUS ></a></div>
                                     </header>
-                                    <div>
-                                           <div  style="background-color: white; display: flex; flex-direction:row; flex-wrap: nowrap; overflow: scroll; padding:4px;">
+                                    <div id="sec">
+                                           <div  style="background-color: white; display: flex; flex-direction:row; flex-wrap: nowrap; padding:4px;">
                                                <?php  
 
                                                     try {
@@ -241,8 +241,12 @@
                                                     }
 
                                                     // Parcourt chaque produit récupéré dans le tableau $prod
-
+                                                    $count = 0;
                                                     foreach($prod as $ligne){
+                                                      if ($count % 6 == 0 && $count != 0) {
+                                                         echo '</div></div><div id="sec">
+                                                                 <div style="background-color: white; display: flex; flex-direction:row; flex-wrap: nowrap; padding:4px;padding-top:15px;">';
+                                                     }
                                                       $id_produit=$ligne['Product_id'];
                                                       $prix=$ligne['product_price'];
                                                       $disc=$ligne['discount'];
@@ -253,12 +257,12 @@
                                                       $quantite_totale = $ligne['total_product_quantity'];
                                                       $quantite_pourcentage = ($quantite_totale > 0) ? ($quantite_restante / $quantite_totale) * 100 : 0;
                                                       if($ligne['remaining_product_quantity']>0){
-                                                         echo"<div class=\"prodruit\" style=\"display: flex; flex-direction: column; width: 16.6666666667%;\"> 
+                                                         echo"<div class=\"prodruit\" style=\"display: flex; flex-direction: column; width: 16.6666666667%;,max-width:;16.6666666667\"> 
                                                          <article>
                                                            <a href=\"produit.php?id_produit={$id_produit}\">
-                                                             <span style=\"display: flex; justify-content: center;\"><img src=\"{$image}\" style=\"  height: 190px; width: auto;\"></span> <div class=\"nom_produit\" style=\"  white-space: nowrap; padding:4px 8px;  text-overflow: ellipsis; overflow: hidden;\">{$nom_produit}</div>
-                                                             <div class=\"price\" style=\" font-size: 1rem;   padding:4px 8px; display: block;\"><div style=\"font-size: 1rem; font-weight: 500;\">".$new_prix ." DH</div><div style=\"text-decoration: line-through; color: #75757a; font-size: .75rem; font-weight: 400; margin: 4px auto;\">{$prix} DH</div>
-                                                             <div style=\"position:absolute;color: #f68b1e;background-color: #fef3e9;font-size: .875rem;font-weight: 500;padding-right: 4px;min-height: 24px; align-items: center; justify-content: center; display: inline-flex; bottom:250px; left:143px;\">".$disc."%</div>
+                                                             <span style=\"display: flex; justify-content: center; height: 190px\"><img src=\"{$image}\" style=\"  max-height: 190px; width: auto;max-width:145px ;object-fit: contain;\"></span> <div class=\"nom_produit\" style=\"  white-space: nowrap; padding:4px 8px;  text-overflow: ellipsis; overflow: hidden;\">{$nom_produit}</div>
+                                                             <div class=\"price\" style=\" font-size: 1rem; padding:4px 8px; display: block;\"><div style=\"font-size: 1rem; font-weight: 500;\">".$new_prix ." DH</div><div style=\"text-decoration: line-through; color: #75757a; font-size: .75rem; font-weight: 400; margin: 4px auto;\">{$prix} DH</div>
+                                                             <div style=\"position:absolute;color: #f68b1e;background-color: #fef3e9;font-size: .875rem;font-weight: 500;padding:5px;min-height: 24px; align-items: center; justify-content: center; display: inline-flex; bottom:250px; left:143px;\">-".$disc."%</div>
                                                              <div class=\"quant\" style=\"display: flex; flex-direction: column; \"> 
                                                              <div class=\"quant_nbr\" style=\"margin-bottom: 4px; font-size: .75rem; margin-top: 5px; color: #4a4a4a;\" >{$quantite_restante} article restants</div>
                                                              <div class=\"quant_bar\" style=\"width: 96%; height: 8px; border-radius: 5px; background-color: #808080; \"> 
@@ -267,7 +271,9 @@
                                                              </div> 
                                                             </a> 
                                                           </article>
-                                                        </div>";}
+                                                        </div>";
+                                                      $count++;
+                                                   }
                                                     } 
                                                ?>
                                            </div>

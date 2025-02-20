@@ -5,7 +5,8 @@
     <link rel="stylesheet" href="../css/Accueil_banner.css">
     <link rel="stylesheet" href="../css/Accueil_header.css">
     <link rel="stylesheet" href="../css/Accueil_main.css">
-    <link rel="stylesheet" href="../css/footer.css">  
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/header.css">  
 
     <title>Jumia Anniversaire 2023 | Meilleures offres de Téléphones, TVs, Mode, Maison, Beauté et plus</title>
 <link rel="icon" type="image/ico" sizes="any" href="https://www.jumia.ma/assets_he/favicon.87f00114.ico">

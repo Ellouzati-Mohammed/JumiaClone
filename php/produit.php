@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="../css/Accueil_banner.css">
 <link rel="stylesheet" href="../css/Accueil_header.css">
 <link rel="stylesheet" href="../css/footer.css">  
+<link rel="stylesheet" href="../css/produit.css">
+<link rel="stylesheet" href="../css/header.css">  
    
 <meta charset="UTF-8">
 <?php 
@@ -57,55 +59,58 @@ require_once 'db/db.php';
                                   }
                                 }
       ?>
-    <main style=" background-color: #f1f1f2; padding-bottom: 8px; padding-top: 8px">
-      <div class="row_row" style="width: 1184px; margin: 0 auto; display: flex; flex-direction: row; flex-wrap: wrap;  font-size: .875rem; font-family: Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;">
-             <div style="flex: 100%;  padding-bottom: 16px; padding-top: 8px; width: 100%; font-size: .75rem; padding-left: 8px;  padding-right: 8px;  font-family: Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;"><?php echo"Accueil > $categ > $liste > $type > $nom"; ?></div>
-            <section style=" width: 75%;   padding-right: 8px; padding-left: 8px; border-radius: 5px;height: 100%;">
-                            <div style="height: 655px;border-radius: 4px; background-color: white; display: flex; flex-direction: row; flex-wrap: wrap; padding: 8px; padding-right: 0; ">
-                                    <div class="image_prd_info" style="padding-left: 8px; display: flex; flex-direction: column;  width: 37.5%; padding-top: 8px;">
-                                          <div style=" width: 94%; height: 315px; display: flex; justify-content: center;  box-shadow: 0 1.5px 1px 0 rgba(0, 0, 0, .04);"><img style="max-width: 97%;object-fit: contain;" src="<?php echo $image; ?>"> </div>
-                                          <section class="partag" style="padding-bottom: 8px; display: block;">
-                                            <h2 style="font-weight: 500; padding-bottom: 2px; font-size: .875rem;">PARTAGEZ CE PRODUIT</h2>
+    <main class="main_">
+        <div class="row_row">
+             <div class="plg">
+               <?php echo"Accueil > $categ > $liste > $type > $nom"; ?></div>
+            <section class="sec14">
+                            <div class="dvk">
+                                    <div class="image_prd_info">
+                                          <div class="dvim" >
+                                            <img style="" src="<?php echo $image; ?>"> </div>
+                                          <section class="partag" >
+                                            <h2>PARTAGEZ CE PRODUIT</h2>
                                             <div><img src="../images/facebook.png" width="30px" height="28px"><img src="../images/twitr.png" width="28px" height="28px" style="margin-left: 5px;"></div>
                                           </section>
                                     </div>
                                     <div class="info_prod_achat" style="width: 62.5%; ">
-                                          <div class="nom_prefer" style="margin-left: 2px; padding-left: 3px; padding-top: 6px; display: flex; flex-direction: row; justify-content: space-between;">
-                                            <div>
-                                                <a href="" style="background-color: #276076; color: white; text-decoration: none; font-size: .75rem; padding-left: 4px; padding-right: 4px; align-items: center; border-radius: 2px; padding-top: 3px; padding-bottom: 3px; font-family: Roboto,Arial,Helvetica,sans-serif;">Boutique Officielle</a>
-                                                <h1 style="margin: 0; font-size: 1.25rem; padding-bottom: 4px;padding-top: 10px; font-weight: 400;"><?php echo $nom;?></h1>
+                                          <div class="nom_prefer">
+                                            <div class="un_nm_pr">
+                                                <a href="" >Boutique Officielle</a>
+                                                <h1><?php echo $nom;?></h1>
                                             </div>
-                                            <a href=" " style=" margin-right:16.5px; margin-top:2px;"><img src="../images/prefer.png" width="23.5px" height="21px"></a>
+                                            <a href=""><img src="../images/prefer.png" width="23.5px" height="21px"></a>
                                           </div>
-                                          <div class="mark_rate_prix" style=" margin-left: 5px;">
-                                              <div class="mark" style="color: #313133;; margin-top: 4.5px;">Marque: <a href="" style="text-decoration: none; color: #264996;"><?php echo $mark; ?></a> </div>
-                                              <div class="rate" style="margin-top: 8px; display: flex; flex-direction: row;"><div style="display: flex; align-items: center;"><img src="../images/rating.png" width="77px" height="14px"></div><a href="" style="text-decoration: none; color: #264996; margin-left: 7px;">(5 avis vérifies)</a></div>
-                                              <div class="livraison" style="margin-top: 8px; margin-left: 0.5px;"><img src="../images/livre.png" width="100px" height="15px"></div>
-                                              <div class="prix_dismount_info" style="box-shadow: 0 1.5px 5px 0 rgba(0, 0, 0, .04); padding-bottom: 16px;">
-                                                     <div class="prix_dismount" style="margin-top: 14px;">
-                                                           <div style="font-size: 1.5rem; font-weight: 700; padding:7px 0 7px 0;"><?php echo $new_prix;?> Dhs</div>
+                                          <div class="mark_rate_prix">
+                                              <div class="mark" >Marque: <a href=""><?php echo $mark; ?></a> </div>
+                                              <div class="rate"><div><img src="../images/rating.png" width="77px" height="14px"></div><a href="">(5 avis vérifies)</a></div>
+                                              <div class="livraison"><img src="../images/livre.png" width="100px" height="15px"></div>
+                                              <div class="prix_dismount_info">
+                                                     <div class="prix_dismount">
+                                                           <div class="prx_t"><?php echo $new_prix;?> Dhs</div>
                                                            <?php
                                                            if($ligne['discount']!=0){
-                                                            echo"<div style=\"display: flex; flex-direction: row;\">
-                                                            <div style=\"text-decoration: line-through; color: #75757a; font-size: 1rem;\">".$prix." Dhs</div>
-                                                            <div style=\"margin-left: 7px; color: #f68b1e; background-color: #fef3e9; font-size: .875rem;font-weight: 500; padding-left: 4px; padding-right: 4px; border-radius: 2px; font-family: Roboto,Arial,Helvetica,sans-serif;display: flex; align-items: center; padding-top: 4px; padding-bottom: 4px;\"><span>-".$disc."%</span></div>
+                                                            echo"<div class=\"prxf\" >
+                                                            <div class=\"prxf_fist_dv\">".$prix." Dhs</div>
+                                                            <div class=\"prxf_sec_dv\"><span>-".$disc."%</span></div>
                                                            </div>";
                                                            }
                                                            
                                                            ?>
                                                      </div>
-                                                     <p style="margin: 0; font-size: .75rem; color: #75757a; margin-top: 7px;">Disponible</p>
-                                                     <div style="font-size: .75rem; color: #313133; margin-top: 8px;">+ livraison à partir de<span style="font-weight: 500;"> 12.00 Dhs </span>(livraison gratuite si supérieur à 150.00 Dhs) vers CASABLANCA - Anfa</div>
+                                                     <p>Disponible</p>
+                                                     <div class="lv_prt">+ livraison à partir de<span> 12.00 Dhs </span>(livraison gratuite si supérieur à 150.00 Dhs) vers CASABLANCA - Anfa</div>
                                               </div>
                                           </div>
-                                          <div class="j'achéte" style="margin-left: 4px; margin-top: 8px; font-size: .875rem; font-weight: 500; ">
-                                              <div style="padding-bottom: 8px; margin-left: 1px;"><span>OPTIONS DISPONIBLES</span></div>
-                                              <div class="j'achéte_boutton">
+                                          <div class="j'achéte achet_op">
+                                              <div class="disp_opt"><span>OPTIONS DISPONIBLES</span></div>
+                                              <div class="j'achéte_boutton achet_op_btn">
                                              
                                              <?php
-                                                  
+                                                //header("Location: " . $_SERVER['PHP_SELF']);
                                                  $existsInCart = false;
                                                  $idclt = isset($_SESSION['user']['user_id']) ? $_SESSION['user']['user_id'] : null;
+                                                 
                                                   if(!isset($_SESSION['panier'] [$idclt] )){
                                                     $_SESSION['panier'] [$idclt]= [];
                                                   }  
@@ -117,25 +122,27 @@ require_once 'db/db.php';
                                                         break;
                                                       }
                                                     }
-
-                                                  if ($existsInCart) {
                                                     $valeur=$_GET['id_produit'];
                                                     $requet= $bd->prepare('SELECT * FROM product where  product.Product_id = :valeur'); 
                                                     $requet->bindParam(':valeur', $valeur);
                                                     $requet->execute();
                                                     $prod=$requet->fetchALL(PDO::FETCH_ASSOC);
+                                                  if ($existsInCart) {
+                                                   
                                                     foreach($prod as $ligne){
                                                      
                                                       
                                                       if($idProduit==$ligne['Product_id']){
                                                         if($_SESSION['panier'][$idclt][$_GET['id_produit']]>$ligne['remaining_product_quantity']){
                                                          $_SESSION['panier'][$idclt][$_GET['id_produit']]=$ligne['remaining_product_quantity'];
+                                                         
                                                        }
                                                       }
                                                     }
+                                                    
 
-                                                    echo"<form id=\"acheterForm\" action=\"panier.php\" method=\"post\" style=\" margin-top:35px; margin-left:0;  box-shadow: 0 1px 0px 0 rgba(0,0,0,.05); padding-bottom:29px;\">
-                                                    <input type=\"text\" value=\"".$_SESSION['panier'][$idclt][$_GET['id_produit']]."\" placeholder=\"Entrez la quantité\" name=\"quantitt\" style=\"padding:5px 0px; border-radius: 4px;  font-size: 14px; width:120px;  border:1px solid grey; padding-left:4px;box-shadow: 0 2px 8px 0 rgba(0,0,0,.05);\">
+                                                    echo"<form class=\"acheterFormif\" id=\"acheterForm\" action=\"panier.php\" method=\"post\">
+                                                    <input type=\"text\" value=\"".$_SESSION['panier'][$idclt][$_GET['id_produit']]."\" placeholder=\"Entrez la quantité\" name=\"quantitt\">
                                                     <input type=\"hidden\" name=\"achéte\" value=\" ".$_GET['id_produit']." \">
                                                     ";
 
@@ -147,11 +154,11 @@ require_once 'db/db.php';
                                                     <input type=\"hidden\" name=\"lieu\" value=\" ".$_GET['lieu']." \">";
                                                     }
                                                     echo"
-                                                    <button type=\"submit\"  style=\"height:30px; background-color: #f68b1e; box-shadow: 0 2px 8px 0 rgba(0,0,0,.05); font-size: 13px; color: white; border: 0px ; cursor: pointer; border-radius: 4px; font-weight: 500;\">VALIDE</button>
+                                                    <button type=\"submit\"  style=\"\">VALIDE</button>
                                                    </form>";
                                                    
                                                   } else {
-                                                    echo"<form id=\"acheterForm\" action=\"panier.php\" method=\"post\" style=\"margin-top: 25px; margin-left: 0px; margin-right: 10px; box-shadow: 0 1px 0px 0 rgba(0,0,0,.03);  padding-bottom: 17px;\">
+                                                    echo"<form class=\"acheterFormelse\" id=\"acheterForm\" action=\"panier.php\" method=\"post\">
                                                     <input type=\"hidden\" name=\"achéte\" value=\" ".$_GET['id_produit']." \">";
                                                     if(isset($_GET['ville']) && isset($_GET['lieu'])){
                                                       $_SESSION['cmd'][$idclt][$_GET['id_produit']]['ville']=$_GET['ville'];
@@ -161,50 +168,50 @@ require_once 'db/db.php';
                                                       <input type=\"hidden\" name=\"lieu\" value=\" ".$_GET['lieu']." \">";
                                                       }
                                                       echo"
-                                                    <button type=\"submit\"  style=\"width: 100%; height: 48px; background-color: #f68b1e; display: flex; justify-content: space-between; align-items: center; font-size: 15px; color: white; border: 0px ; cursor: pointer; border-radius: 4px; font-weight: 500;  font-family: Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;  box-shadow: 0 4px 8px 0 rgba(0,0,0,.2);\"><img src=\"../images/acht.png\" width=\"30px\" height=\"30px\"><span style=\"position: relative; right: 8px;\">J'ACHETE</span><div></div></button>
+                                                    <button type=\"submit\"  ><img src=\"../images/acht.png\" width=\"30px\" height=\"30px\"><span>J'ACHETE</span><div></div></button>
                                                     <input type=\"hidden\" name=\"quantitt\" value=\"1\">
                                                    </form>";
                                                   }
                                                 ?> 
                                               </div>
-                                              <div id="alert_lieu" style="display:none;text-shadow: 0.5px 0.5px 8px rgba(0, 0, 0, 0.36);;font-weight:bold;font-size:15px;color: rgb(255, 255, 255); background-color:rgba(255, 0, 0, 0.66); margin-right:10px;padding:14px;border-radius:5px;">
+                                              <div class="allert_de_lieu" id="alert_lieu">
                                               Choisissez un lieu !!!
                                               </div>
                                           </div>
-                                          <section style="margin-left:4px;">
-                                                  <h1 style="font-size: .875rem; margin: 0; padding-top: 5px; padding-left: 2px; font-weight: 500;">PROMOTIONS</h1>
-                                                  <div style="margin-top: 19px; display: flex; flex-direction: column;">
-                                                     <a href="" style="text-decoration: none; display:flex; flex-direction: row;"><img src="../images/avv.png" width="20px" height="20px"><span style="margin-left:11px; color: #264996;">Les commandes Jumia Express sont éligibles à la livraison gratuite. Offre </br>soumise à conditions</span></a>
-                                                     <a href="" style="text-decoration: none;  margin-top: 9px; display:flex; flex-direction: row;"><img src="../images/prooo.png" width="20px" height="20px"><span style="margin-left:11px; color: #264996;">Adieu au temps perdu aux péages. Rechargez votre Pass Jawaz maintenant et gagnez votre temps !</span></a>
+                                          <section class="omo_sec" >
+                                                  <h1>PROMOTIONS</h1>
+                                                  <div class="som_bla">
+                                                     <a class="cd1" href=""><img src="../images/avv.png" width="20px" height="20px"><span>Les commandes Jumia Express sont éligibles à la livraison gratuite. Offre </br>soumise à conditions</span></a>
+                                                     <a class="cd2" href=""><img src="../images/prooo.png" width="20px" height="20px"><span>Adieu au temps perdu aux péages. Rechargez votre Pass Jawaz maintenant et gagnez votre temps !</span></a>
                                                   </div>
                                           </section>
 
                                     </div>
 
-                                    <div style=" flex: 100%; margin-top: 30.5px;   padding: 8px;"><a href="" style="text-decoration: none; "><span style="">Signaler des informations incorrectes liées au produit</span></a></div>
+                                    <div class="signal_rep"><a href=""><span>Signaler des informations incorrectes liées au produit</span></a></div>
                             </div>
              </section>
               
              
             </section>
 
-             <div style=" margin-left: 8px; width: 23.65%; padding-left: 0px; display: flex; flex-direction: column; font-family: Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;">
-                      <section style="border-radius: 4px; background-color: white; padding-left: 8px;  padding-right: 8px; padding-bottom: 8px;">
-                              <h1 style=" margin:0px; padding: 8px; padding-left:0px; font-size: .875rem; font-weight: 500; box-shadow: 0 1px 0px 0 rgba(0,0,0,.05);">LIVRAISON & RETOURS</h1>
-                              <div style="padding: 8px; padding-left:0px;">
-                                   <article style="display:flex; flex-direction:column; box-shadow: 0 1px 0px 0 rgba(0,0,0,.05); padding-bottom:7px;">
+             <div class="livr_sec">
+                      <section>
+                              <h1>LIVRAISON & RETOURS</h1>
+                              <div class="header_liv_det">
+                                   <article>
                                       <img src="../images/expr.png" width="115px" height="13.5px">
-                                      <p style="font-size: .75rem; color: #313133; margin:0; margin-top:5px;">Livraison rapide dans les grandes villes.<a href="" style="font-size: .875rem; color: #264996; overflow: visible;">Detail</a></p>
+                                      <p>Livraison rapide dans les grandes villes.<a href="">Detail</a></p>
                                    </article>
                               </div>
-                              <div>
+                              <div class="main_liv_det">
                                    <article>
-                                          <h3 style="margin:0; font-size: 1rem; font-weight: 500;">Choisissez le lieu</h3>
-                                          <div style="margin-top:16px;">
-                                                 <form id="vl" method="get" action="produit.php"  style="padding-bottom: 8px;">
+                                          <h3>Choisissez le lieu</h3>
+                                          <div class="lieu_lv_form">
+                                                 <form class="vl1" id="vl" method="get" action="produit.php">
                                                  
                                                  <input type="hidden" name="id_produit" value="<?php echo $_GET['id_produit']; ?>">
-                                                    <select onchange="submitForm()" name="ville" style="--ac: #75757a;-webkit-appearance: none;font-size: 1rem; padding-right: 40px; padding-left: 16px; height: 48px; width: 100%; color: #313133; border: 1px solid #a3a3a6;border-radius: 4px; margin: 0; background: linear-gradient(45deg,transparent 40%,var(--ac) 50%) no-repeat top 21px right 30px/6px 5px,linear-gradient(135deg,var(--ac) 50%,transparent 60%) no-repeat top 21px right 25px/6px 5px;">
+                                                    <select onchange="submitForm()" name="ville">
                                                         <!-- inserer le table de livrai-->
                                                         <option value="" disabled selected >Choisire*</option>
                                                         <?php 
@@ -224,11 +231,11 @@ require_once 'db/db.php';
                                                     </select>
                                                   </form>
                                                   
-                                                  <form id="vl" method="get" action="produit.php" style="padding-top: 8px;">
+                                                  <form class="vl2" id="vl" method="get" action="produit.php">
                                                    <input type="hidden" name="id_produit" value="<?php echo $_GET['id_produit']; ?>">
                                                          <input type="hidden" name="ville" value="<?php if(isset($_GET['ville'])) { echo $_GET['ville']; } ?>">
  
-                                                       <select onchange="this.form.submit()" name="lieu" style="--ac: #75757a;-webkit-appearance: none;font-size: 1rem; padding-right: 40px; padding-left: 16px; height: 48px; width: 100%; color: #313133; border: 1px solid #a3a3a6;border-radius: 4px; margin: 0; background: linear-gradient(45deg,transparent 40%,var(--ac) 50%) no-repeat top 21px right 30px/6px 5px,linear-gradient(135deg,var(--ac) 50%,transparent 60%) no-repeat top 21px right 25px/6px 5px;">
+                                                       <select onchange="this.form.submit()" name="lieu">
                                                        <option value="" disabled selected >Choisire*</option>
                                                        <?php 
                                                          if(isset($_GET['ville'])) {
@@ -253,51 +260,50 @@ require_once 'db/db.php';
                                                 
                                               </div>
                                              
-                                          <section style="margin-top:16px;">
+                                          <section class="vender_lv_info">
                                                 <div>
-                                                      <article style="display:flex; flex-direction:row">
+                                                      <article class="art1_lv">
                                                            <img src="../images/truck1.png" width="40px" height="40px"> 
                                                            <div>
-                                                                 <div style="padding-left:8px;">
-                                                                    <div style="display:flex; flex-direction:row; justify-content: space-between;"> 
-                                                                      <h4 style="margin:0; font-size: .875rem; font-weight: 500;">Livraison à domicile</h4>
-                                                                      <button style="font-size: .75rem; cursor: pointer; color: #264996; background-color: transparent; border: 0; margin-left:5px; padding:0;">Détails</button>
+                                                                 <div class="lv_info_dm">
+                                                                    <div class="lv_domc"> 
+                                                                      <h4>Livraison à domicile</h4>
+                                                                      <button>Détails</button>
                                                                     </div> 
-                                                                    <div style="display:flex; flex-direction:row; flex-direction: column;">
-                                                                           <div style="font-size: .75rem; padding-top:3.5px;">Livraison <em style="font-style: normal; font-weight: 500;">27.00 Dhs</em> (livraison gratuite si supérieur à 150.00 Dhs)</div>
-                                                                           <div style="font-size: .75rem; padding-top:4px;">Livré au plus tard le <em style="font-style: normal; font-weight: 500;">15 juin</em> si vous commandez d'ici <em style="font-style: normal; font-weight: 500;">19hrs 45mins</em></div>
+                                                                    <div class="lv_pr">
+                                                                           <div>Livraison <em>27.00 Dhs</em> (livraison gratuite si supérieur à 150.00 Dhs)</div>
+                                                                           <div>Livré au plus tard le <em>15 juin</em> si vous commandez d'ici <em>19hrs 45mins</em></div>
                                                                     </div>
                                                                  </div>
                                                                  
                                                            </div>
                                                       </article>
-                                                      <article style="display:flex; flex-direction:row; padding-top: 9px; box-shadow: 0 1px 0px 0 rgba(0,0,0,.06); padding-bottom:10px;">
+                                                      <article class="art2_lv">
                                                            <img src="../images/truck2.png" width="41px" height="41px"> 
                                                            <div>
-                                                                 <div style="padding-left:8.5px;">
-                                                                    <div style="display:flex; flex-direction:row; justify-content: space-between;"> 
-                                                                      <h4 style="margin:0; font-size: .875rem; font-weight: 500;">Point relais</h4>
-                                                                      <button style="font-size: .75rem; cursor: pointer; color: #264996; background-color: transparent; border: 0; margin-left:5px; padding:0;">Détails</button>
+                                                                 <div class="lv_info_dm">
+                                                                    <div class="lv_domc"> 
+                                                                      <h4>Point relais</h4>
+                                                                      <button >Détails</button>
                                                                     </div> 
-                                                                    <div style="display:flex; flex-direction:row; flex-direction: column;">
-                                                                           <div style="font-size: .75rem; padding-top:3.5px;">Livraison <em style="font-style: normal; font-weight: 500;">12.00 Dhs</em> (livraison gratuite si supérieur à 150.00 Dhs)</div>
-                                                                           <div style="font-size: .75rem; padding-top:4px;">Disponible pour le retrait à partir du <em style="font-style: normal; font-weight: 500;">14 juin</em> si vous commandez d'ici <em style="font-style: normal; font-weight: 500;">4hrs 33mins</em></div>
+                                                                    <div class="lv_pr">
+                                                                           <div>Livraison <em>12.00 Dhs</em> (livraison gratuite si supérieur à 150.00 Dhs)</div>
+                                                                           <div>Disponible pour le retrait à partir du <em >14 juin</em> si vous commandez d'ici <em>4hrs 33mins</em></div>
                                                                     </div>
                                                                  </div>
                                                                  
                                                            </div>
                                                       </article>
-                                                      <article style="display:flex; flex-direction:row; padding-top: 7px; ">
+                                                      <article class="art3_lv">
                                                            <img src="../images/truck3.png" width="41px" height="41px"> 
                                                            <div>
-                                                                 <div style="padding-left:8.5px;">
-                                                                    <div style="display:flex; flex-direction:row; justify-content: space-between;"> 
-                                                                      <h4 style="margin:0; font-size: .875rem; font-weight: 500;">Politique de retour</h4>
-                                                                      <button style="font-size: .75rem; cursor: pointer; color: #264996; background-color: transparent; border: 0; margin-left:5px; padding:0;">Détails</button>
+                                                                 <div class="lv_info_dm">
+                                                                    <div  class="lv_domc"> 
+                                                                      <h4 >Politique de retour</h4>
+                                                                      <button>Détails</button>
                                                                     </div> 
-                                                                    <div style="display:flex; flex-direction:row; flex-direction: column;">
-                                                                           <div style="font-size: .75rem; padding-top:3.5px;">Retour gratuit dans les 7 jours suivant la date de livraison.<a href="" style="color: #264996;margin-left: 4px; text-decoration: none;">En savoir plus</a></div>
-                                                                           
+                                                                    <div class="lv_pr">
+                                                                           <div>Retour gratuit dans les 7 jours suivant la date de livraison.<a href="">En savoir plus</a></div>
                                                                     </div>
                                                                  </div>
                                                                  
@@ -310,12 +316,12 @@ require_once 'db/db.php';
                                    
                               </div>
                       </section>
-                      <div class=" height:100%; padding-top:16px;">
-                            <section style="box-shadow: 0 2px 5px 0 rgba(0,0,0,.05); background-color: #fff; border-radius: 4px; display: block; padding: 8px; padding-bottom:0;">
-                             <a href="" style="text-decoration: none; color: #313133; "><h2 style="margin:0; font-size: .875rem; font-weight: 500; box-shadow: 0 1px 0px 0 rgba(0,0,0,.06); padding-bottom:8px;">INFORMATIONS SUR LE VENDEUR</h2></a>
-                             <div style="padding:8px 0;">
-                                     <p style=" margin:0; font-weight: 500; font-size: .875rem; color: #313133; padding-bottom: 5px;">Jumia</p>
-                                     <div style="font-size: .75rem; padding-top:3.5px;"><em style="font-style: normal; font-weight: 500;">100%</em> Évaluation du vendeur</div>
+                      <div class="vender_inf">
+                            <section>
+                             <a href="" ><h2>INFORMATIONS SUR LE VENDEUR</h2></a>
+                             <div>
+                                     <p>Jumia</p>
+                                     <div><em>100%</em> Évaluation du vendeur</div>
                              </div>
                             </section>
                     

@@ -7,11 +7,10 @@
 <link rel="stylesheet" href="../css/Accueil_header.css">
 <link rel="stylesheet" href="../css/Accueil_main.css"> 
 <link rel="stylesheet" href="../css/footer.css">  
-<link rel="stylesheet" href="../css/list.css">    
-<style>
-   
-</style>
+<link rel="stylesheet" href="../css/acc_main.css"> 
+<link rel="stylesheet" href="../css/header.css">   
 <meta charset="UTF-8">
+
   <?php
   session_start();
   require_once 'db/db.php';
@@ -31,9 +30,9 @@
                      <div class="liste">
 
                         <a class="testp" href="catego.php?cat=Téléphone+%26+Tablette"><img class="ic" src="../images/phoon.png" width="16" height="21" style="margin-right: 7px;">Téléphone & Tablette</a>
-                        <ul class="tp_cat" style="padding-left:20px;position:absolute; z-index:50;  left:197px; background-color:white; height: 100%; width:730px;  border-left: 1.5px solid #d4d4d6;">
-                              <li  style="width:100%; height:100%; display:flex; flex-direction:row; flex-wrap: wrap; ">
-                                    <ul class="categ"style="padding-right:7px; width:33.333%; height:auto; display:flex; flex-direction: column;">
+                        <ul class="tp_cat" style="padding-left:20px;position:absolute; z-index:50;  left:197px; background-color:white; height: 100%; width:730px;  border-left: 1.5px solid #d4d4d6; ">
+                              <li style=" width:100%; height:100%; display:flex; flex-direction:row; flex-wrap: wrap;">
+                                    <ul class="categ" style="padding-right:7px; width:33.333%; height:auto; display:flex; flex-direction: column;">
                                        <li>
                                           <ul>
                                              <li style="text-overflow: ellipsis; white-space: nowrap; text-transform: uppercase; font-weight: 500; padding-bottom: 7px; padding-top: 4px; overflow: hidden; display: block; border-bottom: 1px solid #d4d4d6; font-size: .840rem;"><a class="abb" href="recherch.php?Recherch=Téléphone & Tablette" style="margin:0; text-align: left;">TÉLÉPHONE PORTABLE</a></li>
@@ -89,7 +88,7 @@
                         </ul>
                   
                         <a class="testp"href="catego.php?cat=TV+%26+Hi+Tech"><img class="ic" src="../images/Tv.png" width="20" height="19" style="right: 1.5px;">TV & Hi Tech</a>
-                        <ul class="tp_cat" style="padding-left:20px;position:absolute; z-index:50;  left:197px; background-color:white; height: 100%; width:730px;  border-left: 1.5px solid #d4d4d6;">
+                        <ul class="tp_cat" style="padding-left:20px;position:absolute; z-index:50;  left:197px; background-color:white; height: 100%; width:730px;  border-left: 1.5px solid #d4d4d6;  ">
                               <li  style="width:100%; height:100%; display:flex; flex-direction:row; flex-wrap: wrap; ">
                                  
                                     <ul class="categ"style="padding-right:7px; width:33.333%; height:auto; display:flex; flex-direction: column;">
@@ -195,7 +194,7 @@
                       <div class="ass" style="margin-right:0px; width:95%; ">
                                 <a href="" id="ass"><img src="../images/ass1.png" width="35" height="35" ><div style="display: flex; flex-direction: column;"><span style="  font-family:system-ui;font-size: 14px; font-weight: 500;">Centre d'assistance</span><span style=" font-family:system-ui;font-size: 12px; font-weight: 400;">Guide du service client</span></div></a>
                                 <a href="" id="ass"><img src="../images/ass2.png" width="35" height="35" ><div style="display: flex; flex-direction: column;"><span style="  font-family:system-ui;font-size: 14px; font-weight: 600;">Retour Facile</span><span style=" font-family:system-ui;font-size: 12px; font-weight: 400;">Remboursement rapide</span></div></a>
-                                <a href="" id="ass" style=" margin-bottom: 0px;padding-bottom:30px;" style=""><img src="../images/ass3.png" width="35" height="35" ><div style="display: flex; flex-direction: column;"><span style="  font-family:system-ui;font-size: 14px; font-weight: 600;">Vendez sur Jumia</span><span style=" font-family:system-ui;font-size: 12px; font-weight: 400;">Ouvrez votre shop ici</span></div></a>
+                                <a href="" id="ass" style=" margin-bottom: 0px;padding-bottom:30px;"><img src="../images/ass3.png" width="35" height="35" ><div style="display: flex; flex-direction: column;"><span style="  font-family:system-ui;font-size: 14px; font-weight: 600;">Vendez sur Jumia</span><span style=" font-family:system-ui;font-size: 12px; font-weight: 400;">Ouvrez votre shop ici</span></div></a>
                       </div>
                       <div class="pub2">
                                 <a href="" id="pub2" ><img src="https://ma.jumia.is/cms/000_2023/000006_Juin/CS-PUSH/218x184.jpg" style=" border-radius: 4px; margin-top:21px;"></a>

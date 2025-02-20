@@ -1,0 +1,242 @@
+.main_{
+    background-color: #f1f1f2; padding-bottom: 8px; padding-top: 8px
+}
+.row_row{
+    width: 1184px; margin: 0 auto; display: flex; flex-direction: row; flex-wrap: wrap;  font-size: .875rem; font-family: Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;
+}
+
+.plg{
+    flex: 100%;  padding-bottom: 16px; padding-top: 8px; width: 100%; font-size: .75rem; padding-left: 8px;  padding-right: 8px;  font-family: Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;
+}
+.sec14{
+    width: 75%;   padding-right: 8px; padding-left: 8px; border-radius: 5px;height: 100%;
+}
+.dvk{
+    height: 655px;border-radius: 4px; background-color: white; display: flex; flex-direction: row; flex-wrap: wrap; padding: 8px; padding-right: 0; 
+}
+.image_prd_info{
+    padding-left: 8px; display: flex; flex-direction: column;  width: 37.5%; padding-top: 8px;
+}
+.dvim{
+    width: 94%; height: 315px; display: flex; justify-content: center;  box-shadow: 0 1.5px 1px 0 rgba(0, 0, 0, .04);
+}
+.dvim img{
+    max-width: 97%;object-fit: contain;
+}
+.dvim section.partag{
+    padding-bottom: 8px; display: block;
+}
+section.partag h2{
+    font-weight: 500; padding-bottom: 2px; font-size: .875rem;
+}
+.nom_prefer{
+    margin-left: 2px; padding-left: 3px; padding-top: 6px; display: flex; flex-direction: row; justify-content: space-between;
+}
+.un_nm_pr a{
+    background-color: #276076; color: white; text-decoration: none; font-size: .75rem; padding-left: 4px; padding-right: 4px; align-items: center; border-radius: 2px; padding-top: 3px; padding-bottom: 3px; font-family: Roboto,Arial,Helvetica,sans-serif;
+}
+.un_nm_pr h1{
+    margin: 0; font-size: 1.25rem; padding-bottom: 4px;padding-top: 10px; font-weight: 400;
+}
+.nom_prefer a{
+    margin-right:16.5px; margin-top:2px;
+}
+.mark_rate_prix{
+    margin-left: 5px;
+}
+.mark {
+    color: #313133;; margin-top: 4.5px;
+}
+.mark a{
+    text-decoration: none; color: #264996;
+}
+.rate{
+    margin-top: 8px; display: flex; flex-direction: row;
+}
+.rate div{
+    display: flex; align-items: center;
+}
+.rate a{
+    text-decoration: none; color: #264996; margin-left: 7px;
+}
+.livraison{
+    margin-top: 8px; margin-left: 0.5px;
+}
+.prix_dismount_info{
+    box-shadow: 0 1.5px 5px 0 rgba(0, 0, 0, .04); padding-bottom: 16px;
+}
+.prix_dismount{
+    margin-top: 14px;
+}
+.prx_t{
+    font-size: 1.5rem; font-weight: 700; padding:7px 0 7px 0;
+}
+.prxf{
+    display: flex; flex-direction: row;
+}
+.prxf .prxf_fist_dv{
+    text-decoration: line-through; color: #75757a; font-size: 1rem;
+}
+.prxf .prxf_sec_dv{
+    margin-left: 7px; color: #f68b1e; background-color: #fef3e9; font-size: .875rem;font-weight: 500; padding-left: 4px; padding-right: 4px; border-radius: 2px; font-family: Roboto,Arial,Helvetica,sans-serif;display: flex; align-items: center; padding-top: 4px; padding-bottom: 4px;
+}
+.prix_dismount_info p{
+    margin: 0; font-size: .75rem; color: #75757a; margin-top: 7px;
+}
+.prix_dismount_info .lv_prt{
+    font-size: .75rem; color: #313133; margin-top: 8px;
+}
+.prix_dismount_info .lv_prt span{
+    font-weight: 500;
+}
+.achet_op{
+    margin-left: 4px; margin-top: 8px; font-size: .875rem; font-weight: 500; 
+}
+.achet_op .disp_opt{
+    padding-bottom: 8px; margin-left: 1px;
+}
+.acheterFormif{
+    margin-top:35px; margin-left:0;  box-shadow: 0 1px 0px 0 rgba(0,0,0,.05); padding-bottom:29px;
+}
+.acheterFormif input[type="text"]{
+    padding:5px 0px; border-radius: 4px;  font-size: 14px; width:120px;  border:1px solid grey; padding-left:4px;box-shadow: 0 2px 8px 0 rgba(0,0,0,.05);
+}
+.acheterFormif button[type="submit"]{
+    height:30px; background-color: #f68b1e; box-shadow: 0 2px 8px 0 rgba(0,0,0,.05); font-size: 13px; color: white; border: 0px ; cursor: pointer; border-radius: 4px; font-weight: 500;
+}
+.acheterFormelse{
+    margin-top: 25px; margin-left: 0px; margin-right: 10px; box-shadow: 0 1px 0px 0 rgba(0,0,0,.03);  padding-bottom: 17px;
+}
+.acheterFormelse button[type="submit"]{
+    width: 100%; height: 48px; background-color: #f68b1e; display: flex; justify-content: space-between; align-items: center; font-size: 15px; color: white; border: 0px ; cursor: pointer; border-radius: 4px; font-weight: 500;  font-family: Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;  box-shadow: 0 4px 8px 0 rgba(0,0,0,.2);
+}
+.acheterFormelse button[type="submit"] span{
+    position: relative; right: 8px;
+}
+.allert_de_lieu{
+    display:none;text-shadow: 0.5px 0.5px 8px rgba(0, 0, 0, 0.36);;font-weight:bold;font-size:15px;color: rgb(255, 255, 255); background-color:rgba(255, 0, 0, 0.66); margin-right:10px;padding:14px;border-radius:5px;
+}
+.omo_sec{
+    margin-left:4px;
+}
+.omo_sec h1{
+    font-size: .875rem; margin: 0; padding-top: 5px; padding-left: 2px; font-weight: 500;
+}
+.omo_sec .som_bla{
+    margin-top: 19px; display: flex; flex-direction: column;
+}
+.omo_sec .som_bla .cd1 {
+    text-decoration: none; display:flex; flex-direction: row;
+}
+.omo_sec .som_bla .cd1 span{
+    margin-left:11px; color: #264996;
+}
+.omo_sec .som_bla .cd2{
+    text-decoration: none;  margin-top: 9px; display:flex; flex-direction: row;
+}
+.omo_sec .som_bla .cd2 span{
+    margin-left:11px; color: #264996;
+}
+.signal_rep {
+    flex: 100%; margin-top: 30.5px;   padding: 8px;
+}
+.signal_rep a{
+    text-decoration: none;
+}
+.livr_sec{
+    margin-left: 8px; width: 23.65%; padding-left: 0px; display: flex; flex-direction: column; font-family: Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;
+}
+.livr_sec section{
+    border-radius: 4px; background-color: white; padding-left: 8px;  padding-right: 8px; padding-bottom: 8px;
+}
+.livr_sec section h1{
+    margin:0px; padding: 8px; padding-left:0px; font-size: .875rem; font-weight: 500; box-shadow: 0 1px 0px 0 rgba(0,0,0,.05);
+}
+.header_liv_det{
+    padding: 8px; padding-left:0px;
+}
+.header_liv_det article{
+    display:flex; flex-direction:column; box-shadow: 0 1px 0px 0 rgba(0,0,0,.05); padding-bottom:7px;
+}
+.header_liv_det article p{
+    font-size: .75rem; color: #313133; margin:0; margin-top:5px;
+}
+.header_liv_det article p a{
+    font-size: .875rem; color: #264996; overflow: visible;
+}
+.main_liv_det article h3{
+    margin:0; font-size: 1rem; font-weight: 500;
+}
+.main_liv_det article div.lieu_lv_form{
+    margin-top:16px;
+}
+.lieu_lv_form form.vl1{
+    padding-bottom: 8px;
+}
+form.vl1 select{
+    --ac: #75757a;-webkit-appearance: none;font-size: 1rem; padding-right: 40px; padding-left: 16px; height: 48px; width: 100%; color: #313133; border: 1px solid #a3a3a6;border-radius: 4px; margin: 0; background: linear-gradient(45deg,transparent 40%,var(--ac) 50%) no-repeat top 21px right 30px/6px 5px,linear-gradient(135deg,var(--ac) 50%,transparent 60%) no-repeat top 21px right 25px/6px 5px;
+}
+.lieu_lv_form form.vl2{
+    padding-top: 8px;
+}
+form.vl2 select{
+    --ac: #75757a;-webkit-appearance: none;font-size: 1rem; padding-right: 40px; padding-left: 16px; height: 48px; width: 100%; color: #313133; border: 1px solid #a3a3a6;border-radius: 4px; margin: 0; background: linear-gradient(45deg,transparent 40%,var(--ac) 50%) no-repeat top 21px right 30px/6px 5px,linear-gradient(135deg,var(--ac) 50%,transparent 60%) no-repeat top 21px right 25px/6px 5px;
+}
+
+.vender_lv_info{
+    margin-top:16px;
+}
+.art1_lv{
+    display:flex; flex-direction:row
+}
+.lv_info_dm{
+    padding-left:8px;
+}
+.lv_domc {
+    display:flex; flex-direction:row; justify-content: space-between;
+}
+.lv_domc h4{
+    margin:0; font-size: .875rem; font-weight: 500;
+}
+.lv_domc button{
+    font-size: .75rem; cursor: pointer; color: #264996; background-color: transparent; border: 0; margin-left:5px; padding:0;
+}
+.lv_pr{
+    display:flex; flex-direction:row; flex-direction: column;
+}
+.lv_pr div{
+    font-size: .75rem; padding-top:4px;
+}
+.lv_pr div em{
+    font-style: normal; font-weight: 500;
+}
+.art2_lv{
+    display:flex; flex-direction:row; padding-top: 9px; box-shadow: 0 1px 0px 0 rgba(0,0,0,.06); padding-bottom:10px;
+}
+.art3_lv{
+    display:flex; flex-direction:row; padding-top: 7px; 
+}
+.vender_inf{
+    height:100%; padding-top:16px;
+}
+.vender_inf section{
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.05); background-color: #fff; border-radius: 4px; display: block; padding: 8px; padding-bottom:0;
+}
+.vender_inf a{
+    text-decoration: none; color: #313133; 
+}
+.vender_inf a h2{
+    margin:0; font-size: .875rem; font-weight: 500; box-shadow: 0 1px 0px 0 rgba(0,0,0,.06); padding-bottom:8px;
+}
+.vender_inf div{
+    padding:8px 0;
+}
+.vender_inf div p{
+    margin:0; font-weight: 500; font-size: .875rem; color: #313133; padding-bottom: 5px;
+}
+.vender_inf div div{
+    font-size: .75rem; padding-top:3.5px;
+}
+.vender_inf div div em{
+    font-style: normal; font-weight: 500;
+}

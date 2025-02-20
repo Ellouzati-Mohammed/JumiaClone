@@ -18,7 +18,7 @@
 </head>
 <body>
    <?php 
-               
+   try{        
        $idclt = isset($_SESSION['user']['user_id']) ? $_SESSION['user']['user_id'] : null;
       if(!isset($_SESSION['panier'] [$idclt] )){
         $_SESSION['panier'] [$idclt]= [];
@@ -40,6 +40,10 @@
           unset($_SESSION['panier'] [$idclt] [$_POST['achéte']]);
          }
       }
+   } catch (\Throwable $th) {
+      die();
+   }
+   try{
       if(isset($_POST['command'])){
          if(isset($_SESSION['user']['user_id'])){
             $qt= $bd->prepare('SELECT * FROM Product'); 
@@ -75,6 +79,9 @@
             exit;
          }
       }
+   } catch (\Throwable $th) {
+      die();
+   }
    ?>
     <?php include 'componnent/banner.html'; ?> <!--le baner-->
     <?php include 'componnent/header.php'; ?> <!--le header-->
@@ -99,6 +106,7 @@
                   <h2>Panier (<?php echo $cmt; ?>)</h2>
                </header>
                   <?php
+                  try{
                      $requet= $bd->prepare('SELECT * FROM Product'); 
                      $requet->execute();
                      $prod=$requet->fetchALL(PDO::FETCH_ASSOC);
@@ -167,6 +175,9 @@
                         </div>
                      </article>";
                   } }
+               } catch (\Throwable $th) {
+                  die();
+               }
                              ?>
                </article>
          </div>
@@ -204,13 +215,10 @@
                </header>
                <div style="display: flex; flex-direction:row; flex-wrap: nowrap; overflow: scroll; padding:0px 10px;">
                   <?php  
-                  try {
+               try {
                      $requet= $bd->prepare('SELECT * FROM Product'); 
                      $requet->execute();
                      $prod=$requet->fetchALL(PDO::FETCH_ASSOC);
-                  } catch (\Throwable $th) {
-                     die();
-                  }
                   // Parcourt chaque produit récupéré dans le tableau $prod
                   $count = 0;
                   foreach($prod as $ligne){
@@ -255,6 +263,9 @@
                         $count++;
                      }
                   } 
+               } catch (\Throwable $th) {
+                  die();
+               }
                   ?>
                </div>
             </div>

@@ -63,9 +63,7 @@
                                              <li style="padding-top: 8px; text-overflow: ellipsis; margin-top: 4px; overflow: hidden; display: block; color: #75757a; padding-top: 4px;"><a class="ab" href="recherch.php?Recherch=ACCÉSSOIRES TÉLÉPHONE" style="margin:0; text-align: left;">Protections d'écran</a></li>
                                              <li style="padding-top: 8px; text-overflow: ellipsis; margin-top: 4px; overflow: hidden; display: block; color: #75757a; padding-top: 4px;"><a class="ab" href="recherch.php?Recherch=ACCÉSSOIRES TÉLÉPHONE" style="margin:0; text-align: left;">Coques, housses et étuis</a></li>
                                              <li style="padding-top: 8px; text-overflow: ellipsis; margin-top: 4px; overflow: hidden; display: block; color: #75757a; padding-top: 4px;"><a class="ab" href="recherch.php?Recherch=ACCÉSSOIRES TÉLÉPHONE" style="margin:0; text-align: left;">Cartes mémoire</a></li>
-                                          </ul>
-                                       
-                                                                                                                     
+                                          </ul>                                                                           
                                        </li> 
                                     </ul>
                                     <ul class="categ"style="padding-right:7px; width:33.333%; height:auto; display:flex; flex-direction: column;">
@@ -76,14 +74,9 @@
                                              <li style="padding-top: 8px; text-overflow: ellipsis; margin-top: 4px; overflow: hidden; display: block; color: #75757a; padding-top: 4px;"><a class="ab" href="" style="margin:0; text-align: left;">Téléphones filaires</a></li>
                                              <li style="padding-top: 8px; text-overflow: ellipsis; margin-top: 4px; overflow: hidden; display: block; color: #75757a; padding-top: 4px;"><a class="ab" href="" style="margin:0; text-align: left;">VoIP</a></li>
                                              
-                                          </ul>
-                                       
-                                                                                                                     
+                                          </ul>                                                                      
                                        </li>
-                                       
                                     </ul>
-                                    
-                                    
                               </li>
                         </ul>
                   
@@ -167,14 +160,9 @@
                                              <li style="padding-top: 8px; text-overflow: ellipsis; margin-top: 4px; overflow: hidden; display: block; color: #75757a; padding-top: 4px;"><a class="ab" href="" style="margin:0; text-align: left;">Sécurité</a></li>
                                              <li style="padding-top: 8px; text-overflow: ellipsis; margin-top: 4px; overflow: hidden; display: block; color: #75757a; padding-top: 4px;"><a class="ab" href="" style="margin:0; text-align: left;">Radios & Talkie Walkie</a></li>
                                              
-                                          </ul>
-                                       
-                                                                                                                     
+                                          </ul>                                                                          
                                        </li>
-                                       
-                                    </ul>
-                                    
-                                    
+                                    </ul>   
                               </li>
                         </ul>
                         <a class="testp"href="catego.php?cat=Informatique"><img class="ic" src="../images/infor.png" width="19" height="18" style="margin-right: 5.5px; right: 1px;">Informatique</a>
@@ -231,13 +219,11 @@
                                            <div  style="background-color: white; display: flex; flex-direction:row; flex-wrap: nowrap; padding:4px;">
                                                <?php  
 
-                                                    try {
+                                             try {
                                                       $requet= $bd->prepare('SELECT * FROM Product'); 
                                                       $requet->execute();
                                                       $prod=$requet->fetchALL(PDO::FETCH_ASSOC);
-                                                    } catch (\Throwable $th) {
-                                                      die();
-                                                    }
+                                                    
 
                                                     // Parcourt chaque produit récupéré dans le tableau $prod
                                                     $count = 0;
@@ -274,6 +260,9 @@
                                                       $count++;
                                                    }
                                                     } 
+                                             } catch (\Throwable $th) {
+                                                die();
+                                             }
                                                ?>
                                            </div>
                                     </div>

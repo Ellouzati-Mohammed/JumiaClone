@@ -101,13 +101,11 @@
                   <div >
                      <div class="prd_ctn">
                         <?php  
-                        try {
+                  try {
                            $requet= $bd->prepare('SELECT * FROM Product'); 
                            $requet->execute();
                            $prod=$requet->fetchALL(PDO::FETCH_ASSOC);
-                        } catch (\Throwable $th) {
-                           die();
-                        }
+                        
                         // Parcourt chaque produit récupéré dans le tableau $prod
                         $count = 0;
                         foreach($prod as $ligne){
@@ -150,6 +148,9 @@
                            $count++;
                         }
                      } 
+                  } catch (\Throwable $th) {
+                     die();
+                  }
                         ?>
                      </div>
                   </div>

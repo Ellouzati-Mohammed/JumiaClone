@@ -24,15 +24,11 @@ require_once 'db/db.php';
      <?php include 'componnent/banner.html'; ?> <!--le baner-->
      <?php include 'componnent/header.php'; ?> <!--le header-->
      <?php
+                          try{
                                 $valeur=$_GET['id_produit'];
-                                try {
-                                  $requet= $bd->prepare('SELECT * FROM product,category,sub_category,sub_category_title where category.category_id=sub_category.category_id and sub_category.sub_category_id=sub_category_title.sub_category_id and sub_category_title.sub_category_title_id=product.sub_category_title_id and product.product_id = :valeur'); 
-
-                                  $requet->bindParam(':valeur', $valeur);
-                                  $requet->execute();
-                                } catch (\Throwable $th) {
-                                  die();
-                                }
+                                $requet= $bd->prepare('SELECT * FROM product,category,sub_category,sub_category_title where category.category_id=sub_category.category_id and sub_category.sub_category_id=sub_category_title.sub_category_id and sub_category_title.sub_category_title_id=product.sub_category_title_id and product.product_id = :valeur'); 
+                                $requet->bindParam(':valeur', $valeur);
+                                $requet->execute();
                                 
                                 $prod=$requet->fetchALL(PDO::FETCH_ASSOC);
                                 if (empty($prod)) {
@@ -58,6 +54,9 @@ require_once 'db/db.php';
                                     $new_prix=$prix;
                                   }
                                 }
+                          } catch (\Throwable $th) {
+                              die();
+                          }
       ?>
     <main class="main_">
         <div class="row_row">
@@ -107,7 +106,7 @@ require_once 'db/db.php';
                                               <div class="j'achéte_boutton achet_op_btn">
                                              
                                              <?php
-                                                //header("Location: " . $_SERVER['PHP_SELF']);
+                                              try{
                                                  $existsInCart = false;
                                                  $idclt = isset($_SESSION['user']['user_id']) ? $_SESSION['user']['user_id'] : null;
                                                  
@@ -172,6 +171,9 @@ require_once 'db/db.php';
                                                     <input type=\"hidden\" name=\"quantitt\" value=\"1\">
                                                    </form>";
                                                   }
+                                              } catch (\Throwable $th) {
+                                                  die();
+                                              }
                                                 ?> 
                                               </div>
                                               <div class="allert_de_lieu" id="alert_lieu">

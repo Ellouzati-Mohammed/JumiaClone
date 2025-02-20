@@ -58,10 +58,10 @@
                                        echo"<ul class=\"nulm\" >
                                        <li ><a href=\"\" class=\"con\" ><img src=\"../images/cone.png\" width=\"25px\" height=\"21.5px\"> Se connecter<img src=\"../images/fchdown.png\" width=\"11\" height=\"9\" style=\"margin-left:7px;\"></a>
                                        <ul class=\"drop\">
-                                       <li style=\"display:flex;justify-content: center;\"><div class=\"cona\"><a class=\"gig\" href=\"connexion.php\">SE CONNECTER</a></div></li>
-                                       <li ><a id=\"a_i\" href=\"../php/connexion.php\"><img src=\"../images/votre_compt\" width=\"22\" height=\"22\" style=\"margin-right:14px;\">Votre compte</a></li>
-                                       <li ><a id=\"a_i\" href=\"../php/connexion.php\"><img src=\"../images/vos_cmd\" width=\"20\" height=\"20\" style=\"margin-right:15px;\">Vos commandes</a></li>
-                                       <li ><a id=\"a_i\" href=\"../php/connexion.php\"><img src=\"../images/vos_pref\" width=\"20\" height=\"20\" style=\"margin-right:15px; margin-left:0px;\">Votre liste d'envies</a></li>
+                                       <li style=\"display:flex;justify-content: center;\"><div class=\"cona\"><a class=\"gig\" href=\"auth/login.php\">SE CONNECTER</a></div></li>
+                                       <li ><a id=\"a_i\" href=\"../php/auth/login.php\"><img src=\"../images/votre_compt\" width=\"22\" height=\"22\" style=\"margin-right:14px;\">Votre compte</a></li>
+                                       <li ><a id=\"a_i\" href=\"../php/auth/login.php\"><img src=\"../images/vos_cmd\" width=\"20\" height=\"20\" style=\"margin-right:15px;\">Vos commandes</a></li>
+                                       <li ><a id=\"a_i\" href=\"../php/auth/login.php\"><img src=\"../images/vos_pref\" width=\"20\" height=\"20\" style=\"margin-right:15px; margin-left:0px;\">Votre liste d'envies</a></li>
                                        
                                        </ul>
                                        

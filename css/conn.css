@@ -1,4 +1,230 @@
 *{
-    box-sizing: border-box;
-    
+    box-sizing: border-box;  
+}
+.cont_connex{
+    display: flex; flex-direction: column; height: 100%; width: 480px; margin: 0 auto; min-height: 500px; max-width: 100%; font-family: Roboto, sans-serif;margin-top: 50px;
+}
+div.header{
+    display: flex; align-items: center; height: 64px; justify-content: center; margin: 0 0 8px; position: relative;
+}
+div.log_form{
+    display: block; margin-top: 12px;
+}
+.info_aide_log{
+    text-align: center; display: block;
+}
+.info_aide_log h2{
+    font-size: 20px; font-weight: bold; margin: 0;
+}
+.info_aide_log p{
+    font-size: 16px; font-weight: 400; line-height: 1.5em; margin: 8px 0 16px; color: #4a4a4a; text-align: center;
+}
+div.form_input_log{
+    padding-top: 16px; display: flex; flex-direction: column; justify-content: center;
+}
+div.form_input_log input.num_email{
+    border: 1px solid rgb(150, 149, 149); border-radius: 4px; outline: 0; width: 100%; height: 56px; padding-left: 15px; font-size: 16px;
+}
+.no_valid_input_em_tel{
+    margin: 0; flex: 100%; font-size: 15px; color: red; padding-left: 10px; padding-top: 5px;
+}
+.md_io{
+    display: flex; justify-content: center;
+}
+.md_io span{
+    width: 90%; line-height: normal; height: 16px; font-size: 12px; padding-top: 7px;
+}
+div.cont_input{
+    margin-top: 40px;
+}
+div.cont_input input{
+    width: 100%; font-size: 16px; font-weight: bold; color: white; background-color: #f8982d; border: 0; padding: 15px 0px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); cursor: pointer;
+}
+.fcf_log{
+    margin-top: 16px; display: block; margin-bottom: 24px;
+}
+.fcf_log .space_fc{
+    margin-top: 70px;
+}
+.fcf_log .but_fc_fc{
+    width: 100%;
+}
+.but_fc_fc a{
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); font-size: 16px; font-weight: bold; background-color: #1877f2; text-decoration: none; color: white; display: flex; width: 100%; padding: 15px 0px; border-radius: 4px; align-items: center;
+}
+.but_fc_fc a img{
+    margin-left: 16px;
+}
+.but_fc_fc a div{
+    width: 100%; display: flex; justify-content: center; padding-right: 17px;
+}
+.bla_txt{
+    padding: 8px 0; text-align: center;
+}
+#ret{
+    font-size: 14px; line-height: 24px; padding: 0 24px; position: relative; text-align: center; width: 100%;
+}
+.logo444{
+    display: flex; justify-content: center; margin-top: 25px;
+}
+
+.full_contain{
+    display: flex; flex-direction: column; height: 100%; width: 480px; margin: 0 auto; min-height: 500px; max-width: 100%; font-family: Roboto, sans-serif;
+}
+.spqcin_j{
+    margin-bottom: 50px;
+}
+.header{
+    display: flex; align-items: center; height: 64px; justify-content: center; margin: 0 0 8px;
+}
+.card{
+    background-color: #fff; border-radius: 4px; padding: 8px 24px;
+}
+.form_mot_pass{
+    display: block; margin-top: 12px;
+}
+.bienv{
+    text-align: center; display: block;
+}
+.bienv h2{
+    font-size: 20px; font-weight: bold; margin: 0;
+}
+.bienv p{
+    font-size: 16px; font-weight: 400; line-height: 1.5em; margin: 8px 0 16px; color: #4a4a4a; text-align: center;
+}
+.email_tel_aff{
+    margin: 32px 0 16px; display: flex; padding: 16px; background-color: #eee;
+}
+.aff_em_tl{
+    flex: 1; display: block;
+}
+.modif a{
+    text-decoration: none; color: #f69f4e;
+}
+.ps{
+    padding-top: 16px; display: flex; flex-wrap: wrap;
+}
+.ps p{
+    margin: 0; flex: 100%; font-size: 15px; color: red; padding-left: 10px; padding-top: 5px
+}
+.ps input{
+    border: 1px solid rgb(150, 149, 149); border-radius: 4px; outline: 0; flex: 1; height: 51px; padding-left: 15px; font-size: 16px;
+}
+.subm_ps{
+    margin-top: 40px;
+}
+.subm_ps input{
+    width: 100%; font-size: 16px; font-weight: bold; color: white; background-color: #f8982d; border: 0; padding: 16px 0; border-radius: 4px; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5); cursor: pointer;
+}
+.subm_ps a{
+    display: block; text-align: center; text-decoration: none; height: 32px; color: #f8982d; margin-top: 22px; font-weight: bold; font-size: 17px; padding-bottom: 55px;
+}
+.confps{
+    padding-top: 16px; display: flex; margin-top: 16px;
+}
+.confps input {
+    border: 1px solid rgb(150, 149, 149); border-radius: 4px; outline: 0; flex: 1; height: 51px; padding-left: 15px; font-size: 16px;
+}
+.subm_ps_er{
+    margin-top: 19px;
+}
+
+#red_er{
+    visibility: hidden; margin: 0; flex: 100%; font-size: 15px; color: red; padding-left: 10px; padding-top: 5px; margin-bottom: 20px;
+}
+
+
+.input-field {
+    padding-top: 25px;
+    display: flex;
+    margin-top: 16px;
+}
+
+.input-field input {
+    border: 1px solid rgb(150, 149, 149);
+    border-radius: 4px;
+    outline: 0;
+    flex: 1;
+    height: 51px;
+    padding-left: 15px;
+    font-size: 16px;
+}
+
+.form-title {
+    text-align: center;
+    display: block;
+}
+
+#submit-button {
+    margin-top: 22px;
+}
+
+#submit-button input {
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #f8982d;
+    border: 0;
+    padding: 16px 0;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+
+.input-field {
+    padding-top: 16px;
+    display: flex;
+}
+
+.select-genre {
+    --ac: #75757a;
+    font-size: 1rem;
+    padding-right: 40px;
+    padding-left: 16px;
+    height: 55px;
+    width: 100%;
+    color: #313133;
+    border: 1px solid #a3a3a6;
+    border-radius: 4px;
+    background: linear-gradient(45deg,transparent 40%,var(--ac) 50%) no-repeat top 21px right 30px/6px 5px,linear-gradient(135deg,var(--ac) 50%,transparent 60%) no-repeat top 21px right 25px/6px 5px;
+    flex: 1;
+}
+
+.input-date {
+    border: 1px solid rgb(150, 149, 149);
+    border-radius: 4px;
+    outline: 0;
+    flex: 1;
+    height: 51px;
+    padding-left: 15px;
+    font-size: 16px;
+    padding-right: 20px;
+}
+ 
+.form-content {
+    display: block;
+    margin-top: 12px;
+}
+
+.form-title {
+    text-align: center;
+}
+
+.form-title h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+.form-title p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5em;
+    margin: 8px 0 16px;
+    color: #4a4a4a;
+    text-align: center;
+}
+.hidden-fields input {
+    display: none;
 }

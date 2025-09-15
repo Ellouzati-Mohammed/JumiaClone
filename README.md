@@ -1,6 +1,6 @@
 Ce projet est uniquement un exercice personnel pour pratiquer et démontrer mes compétences en développement.
 L’utilisation de ce projet à des fins illégales ou commerciales n’est pas de ma responsabilité.
-Ce projet est un clone de Jumia à des fins pédagogiques uniquement.
+
 
 # JumiaClone
 
@@ -35,4 +35,5 @@ Modifier les informations de connexion dans config.php pour correspondre à ta c
 Lancer le projet :
 
 Démarrer WAMP et accéder au projet via http://localhost/JumiaClone/.
+
 
